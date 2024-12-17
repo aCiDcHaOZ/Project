@@ -1,0 +1,14 @@
+<p>
+    {% if instrument %}
+        Het instrument van jouw keuze is {{ instrument }}.
+        <br>De keuze kan gewijzigd worden in onderstaand formulier:
+    {% else %}
+        Geef de naam van een instrument op in dit formulier:
+    {% endif %}
+    </p>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.instrument.label }} {{ form.instrument() }}
+        {{ form.submit() }}
+    </form>
