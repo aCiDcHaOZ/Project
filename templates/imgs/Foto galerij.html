@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto's Pagina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Algemene stijl */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafc;
+            color: #333;
+        }
+        header {
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px;
+        }
+        .gallery-item {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery-item p {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+        footer {
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Foto's Pagina</h1>
+        <p>Ontdek onze ruimtes en faciliteiten</p>
+    </header>
+
+    <!-- Fotogalerij -->
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/Gaming%20room.jpg" alt="Gaming Room">
+            <p>Gaming Room</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/Disco.jpg" alt="Disco">
+            <p>Disco</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/Zwembad%20(gezamelijk.jpg" alt="Zwembad">
+            <p>Gezamenlijk Zwembad</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/Keuken.jpg" alt="Keuken">
+            <p>Keuken</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/Badkamer.jpg" alt="Badkamer">
+            <p>Badkamer</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/Woonkamer.jpg" alt="Woonkamer">
+            <p>Woonkamer</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Gaming Lodge. Alle rechten voorbehouden.</p>
+    </footer>
+</body>
+</html>
+
