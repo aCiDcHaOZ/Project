@@ -122,7 +122,7 @@
 
     <!-- Afbeelding -->
     <div class="image-container">
-        <img src="https://raw.githubusercontent.com/<JOUW_GITHUB_REPO_PAD>/LAN%20party.jpg" alt="LAN Party Gaming Zone">
+        <img src="https://raw.githubusercontent.com/<templates/imgs/LAN party.jpg>/LAN%20party.jpg" alt="LAN Party Gaming Zone">
     </div>
 
     <!-- Formulier -->
