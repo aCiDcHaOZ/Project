@@ -99,6 +99,10 @@
             font-family: 'Raleway', sans-serif;
             font-size: 0.9em;
         }
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -107,7 +111,7 @@
         <p>Reserveer jouw ultieme verblijf bij Gaming_Lodge</p>
     </header>
     <div class="image-container">
-        <img src="https://raw.githubusercontent.com/<templates/imgs/templates/imgs/Boekingsformulier.jpg"alt="Boekingsformulier Gaming_Lodge">
+        <img src="templates/imgs/Boekingsformulier.jpg" alt="Boekingsformulier Gaming_Lodge">
     </div>
     <section>
         <h2>Maak een Reservering</h2>
@@ -153,7 +157,17 @@
         </form>
     </section>
     <footer>
-        <p>&copy; 2024 Gaming_Lodge. Alle rechten voorbehouden.</p>
+        <p>&copy; 2024 Gaming_Lodge. Alle rechten voorbehouden. Bekijk ons <a href="/privacy">privacybeleid</a>.</p>
     </footer>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            const payment = document.getElementById("payment");
+            if (payment.value === "") {
+                alert("Selecteer een betaalmethode.");
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
