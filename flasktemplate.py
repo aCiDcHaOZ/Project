@@ -11,7 +11,7 @@ def index(): #defineer een nieuwe functie
 
 @app.route("/templates/overons") #als iemand gaat naar site.nl/overons
 def overons(): #defineer een nieuwe functie
-    return render_template("overons.html")
+    return render_template("/templates/overons.html")
 
 if __name__ == "__main__": #Controle of het script elders opgeroepen wordt. Zo niet: Run code
     app.run(debug=True) #Start de webserver met gedetailleerde foutrapportering

@@ -21,25 +21,50 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 #Als er een beroep wordt gedaan op een tabel in de DB die niet bestaat,
-#Maak deze dan.
+#Maak deze dan aan.
 @app.before_request
 def create_tables():
     db.create_all()
 
 #Route naar de hoofdpagina
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template("/templates/voorpagina.html")
+    return render_template('voorpagina.html')
 
 #Route naar prijslijst
-@app.route("/prijslijst")
+@app.route('/prijslijst')
 def PrijsLijst():
-    return render_template("/templates/Prijslijst.html")
+    return render_template('Prijslijst.html')
 
 #Route naar overons
-@app.route("/overons")
+@app.route('/overons')
 def OverOns():
-    return render_template("/templates/overons.html")
+    return render_template('overons.html')
+
+#Route naar Boekingsformulier
+@app.route('/boekingsformulier')
+def BoekingsFormulier():
+    return render_template('Boekingsformulier.html')
+
+#Route naar Registreren
+@app.route('/registreren')
+def Registreren():
+    return render_template('registreren.html')
+
+#Route naar Faciliteiten
+@app.route('/faciliteiten')
+def Faciliteiten():
+    return render_template('Faciliteiten.html')
+
+#Route naar Fotogalerij
+@app.route('/fotogalerij')
+def FotoGalerij():
+    return render_template('fotogalerij.html')
+
+#Route naar registratieformulier voor lan
+@app.route('/reglan')
+def RegLan():
+    return render_template('regform_lan.html')
 
 
 #Als de app niet vanaf extern opgeroepen wordt, starten.
