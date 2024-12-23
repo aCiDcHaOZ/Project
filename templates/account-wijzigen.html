@@ -127,21 +127,32 @@
     <!-- Header -->
     <header>
         <h1>Account Gegevens Wijzigen</h1>
-        <p>Pas je naam, e-mailadres en telefoonnummer eenvoudig aan</p>
+        <p>Vul eerst je oude gegevens in voordat je deze kunt aanpassen</p>
     </header>
 
     <!-- Formulier -->
     <div class="form-container">
         <h2>Gegevens Aanpassen</h2>
         <form action="#" method="POST">
-            <label for="name">Naam</label>
-            <input type="text" id="name" name="name" placeholder="Jouw volledige naam" required>
+            <h3>Oude Gegevens</h3>
+            <label for="old-name">Oude Naam</label>
+            <input type="text" id="old-name" name="old-name" placeholder="Jouw huidige naam" required>
 
-            <label for="email">E-mailadres</label>
-            <input type="email" id="email" name="email" placeholder="voorbeeld@e-mail.com" required>
+            <label for="old-email">Oud E-mailadres</label>
+            <input type="email" id="old-email" name="old-email" placeholder="voorbeeld@e-mail.com" required>
 
-            <label for="phone">Telefoonnummer</label>
-            <input type="tel" id="phone" name="phone" placeholder="06-12345678" required>
+            <label for="old-phone">Oud Telefoonnummer</label>
+            <input type="tel" id="old-phone" name="old-phone" placeholder="06-12345678" required>
+
+            <h3>Nieuwe Gegevens</h3>
+            <label for="new-name">Nieuwe Naam</label>
+            <input type="text" id="new-name" name="new-name" placeholder="Jouw nieuwe naam" required>
+
+            <label for="new-email">Nieuw E-mailadres</label>
+            <input type="email" id="new-email" name="new-email" placeholder="nieuw@e-mail.com" required>
+
+            <label for="new-phone">Nieuw Telefoonnummer</label>
+            <input type="tel" id="new-phone" name="new-phone" placeholder="06-98765432" required>
 
             <button type="submit" class="btn">Wijzig Gegevens</button>
             <a href="index.html" class="btn btn-secondary">Terug naar Startpagina</a>
@@ -154,4 +165,3 @@
     </footer>
 </body>
 </html>
-
