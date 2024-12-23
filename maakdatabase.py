@@ -14,17 +14,16 @@ cursor = conn.cursor()
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS bungalows (
     bungalow_nummer INTEGER PRIMARY KEY,
-    bungalow_naam TEXT NOT NULL,
-    bungalow_prijs REAL NOT NULL
+    bungalow_naam TEXT NOT NULL
 )
 ''')
 cursor.executemany('''
-INSERT INTO bungalows (bungalow_nummer, bungalow_naam, bungalow_prijs)
-VALUES (?, ?, ?)
+INSERT INTO bungalows (bungalow_nummer, bungalow_naam)
+VALUES (?, ?)
 ''', [
-    (1, 'Zonneschijn', 1200),
-    (2, 'Sereen', 1000),
-    (3, 'Exact', 800),
+    (1, 'counterstrike'),
+    (2, 'ageofempires'),
+    (3, 'trackmania'),
 ])
 
 # Tabel maken: boekingen
@@ -34,6 +33,8 @@ CREATE TABLE IF NOT EXISTS Boekingen (
     bungalow_naam TEXT NOT NULL,
     klant_id REAL NOT NULL,
     boeking_prijs INTEGER NOT NULL,
+    boeking_datumin DATE NOT NULL,
+    boeking_datumuit DATE NOT NULL,
     FOREIGN KEY (bungalow_naam) REFERENCES bungalows(bungalow_id),
     FOREIGN KEY (klant_id) REFERENCES Gebruikers(klant_id)
 )
@@ -43,10 +44,30 @@ CREATE TABLE IF NOT EXISTS Boekingen (
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS Gebruikers (
     klant_id INTEGER PRIMARY KEY,
-    klant_naam TEXT NOT NULL
+    klant_naam TEXT NOT NULL,
+    klant_telnr INTEGER NOT NULL,
+    klant_email TEXT NOT NULL
 )            
 ''')
 
+# Tabel maken: lanparty
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS lanparty (
+    lan_id INTEGER PRIMARY KEY,
+    lan_klantid INTEGER NOT NULL,
+    lan_datum DATE NOT NULL,
+    FOREIGN KEY (lan_klantid) REFERENCES Gebruikers(klant_id)
+    
+)            
+''')
+#een lanparty registreren
+cursor.executemany(''' 
+INSERT INTO lanparty (lan_id, lan_klantid, lan_datum)
+VALUES (?, ?, ?)
+''', [
+    (1, 'campzone', '2025-01-01'),
+    (2, 'thereality', '2025-02-01'),
+])
 
 
 conn.commit()
