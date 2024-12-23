@@ -32,12 +32,12 @@ def index():
     return render_template("/templates/voorpagina.html")
 
 #Route naar prijslijst
-@app.route("/template/prijslijst")
+@app.route("/prijslijst")
 def PrijsLijst():
     return render_template("/templates/Prijslijst.html")
 
 #Route naar overons
-@app.route("/templateoverons")
+@app.route("/overons")
 def OverOns():
     return render_template("/templates/overons.html")
 
