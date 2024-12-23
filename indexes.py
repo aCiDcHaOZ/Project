@@ -36,7 +36,7 @@ def index():
 def Prijslijst():
     return render_template("/templates/Prijslijst.html")
 
-#Route naar prijslijst
+#Route naar overons
 @app.route("/overons")
 def Prijslijst():
     return render_template("/templates/overons.html")
