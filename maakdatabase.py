@@ -40,6 +40,27 @@ CREATE TABLE IF NOT EXISTS Boekingen (
 )
 ''')
 
+# Tabel maken: prijzen
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS pakketten (
+    pakketnummer INTEGER PRIMARY KEY,
+    pakketnaam TEXT NOT NULL,
+    pakketprijs TEXT NOT NULL
+)
+''')
+
+#pakketprijzen tabel invullen
+cursor.executemany(''' 
+INSERT INTO pakketten (pakketnummer, pakketnaam, pakketprijs)
+VALUES (?, ?, ?)
+''', [
+    (1, 'nachtpakket', '€129'),
+    (2, 'weekendpakket', '€349'),
+    (3, 'weekpakket', '€999'),
+])
+
+
+
 # Tabel maken: gebruikers
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS Gebruikers (
