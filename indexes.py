@@ -66,6 +66,11 @@ def FotoGalerij():
 def RegLan():
     return render_template('regform_lan.html')
 
+#Route voor foutmelding 404
+@app.errorhandler(404)
+def pagina_niet_gevonden(e):
+    return render_template('404.html'), 404
+
 
 #Als de app niet vanaf extern opgeroepen wordt, starten.
 if __name__ == "__main__":
