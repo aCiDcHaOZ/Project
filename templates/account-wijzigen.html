@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Wijzigen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Algemene styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafc;
+        }
+
+        /* Header */
+        header {
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Formuliercontainer */
+        .form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e88e5;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        /* Inputvelden en labels */
+        label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input {
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 5px rgba(30, 136, 229, 0.5);
+        }
+
+        /* Knoppen */
+        .btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 12px 20px;
+            background-color: #1e88e5;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            background-color: #1565c0;
+            box-shadow: 0 4px 6px rgba(30, 136, 229, 0.3);
+        }
+
+        .btn-secondary {
+            margin-top: 10px;
+            background-color: #f0f4f8;
+            color: #1e88e5;
+            border: 1px solid #1e88e5;
+        }
+        .btn-secondary:hover {
+            background-color: #1e88e5;
+            color: white;
+            box-shadow: 0 4px 6px rgba(30, 136, 229, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsieve stijl */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            .form-container {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Account Wijzigen</h1>
+        <p>Pas je gegevens eenvoudig aan</p>
+    </header>
+
+    <!-- Formulier -->
+    <div class="form-container">
+        <h2>Gegevens Aanpassen</h2>
+        <form action="#" method="POST">
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" id="username" name="username" placeholder="Jouw gebruikersnaam" required>
+
+            <label for="email">E-mailadres</label>
+            <input type="email" id="email" name="email" placeholder="voorbeeld@e-mail.com" required>
+
+            <label for="password">Nieuw Wachtwoord</label>
+            <input type="password" id="password" name="password" placeholder="Nieuw wachtwoord" required>
+
+            <label for="confirm-password">Bevestig Wachtwoord</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Bevestig nieuw wachtwoord" required>
+
+            <button type="submit" class="btn">Wijzig Gegevens</button>
+            <a href="index.html" class="btn btn-secondary">Terug naar Startpagina</a>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Gaming_Lodge. Alle rechten voorbehouden.</p>
+    </footer>
+</body>
+</html>
+account-wijzigen.html
