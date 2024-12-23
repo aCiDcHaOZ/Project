@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Klanten{% endblock %}
+{% block content %}
+<h1>Klanten</h1>
+<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
+<ul class="list-group mt-3">
+  {% for klant in klanten %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ klant.naam }} - {{ klant.email }}
+    <a class="btn btn-sm btn-outline-primary" href="/klant/{{ klant.id }}/wijzigen">Wijzigen</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

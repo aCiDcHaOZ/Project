@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Reizen{% endblock %}
+{% block content %}
+<h1>Reizen</h1>
+<a class="btn btn-primary" href="/reis/toevoegen">Nieuwe reis</a>
+<ul class="list-group mt-3">
+  {% for reis in reizen %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ reis.bestemming }} - €{{ reis.prijs }}
+    <a class="btn btn-sm btn-outline-primary" href="/reis/{{ reis.id }}/wijzigen">Wijzigen</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

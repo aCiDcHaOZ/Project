@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Klant Toevoegen/Wijzigen{% endblock %}
+{% block content %}
+<h1>{{ actie if actie else "Klant toevoegen" }}</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.naam.label(class="form-label") }}
+    {{ form.naam(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.email.label(class="form-label") }}
+    {{ form.email(class="form-control") }}
+  </div>
+  <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}

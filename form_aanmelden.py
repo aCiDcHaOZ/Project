@@ -12,12 +12,15 @@ class InfoForm(FlaskForm):
 
 @app.route("/", methods=['GET', 'POST'])  # Route defineren voor het formulier
 def index():
-    instrument = None  # Initialiseer instrument als None
+    name = None  # Initialiseer instrument als None
+    phone = None
+    email = None
+    gender = None
     form = InfoForm()  # Maak een object van het type InfoForm
     if form.validate_on_submit():
         instrument = form.instrument.data
         form.instrument.data = ''  # Reset het invoerveld
-    return render_template('registreren.html', form=form, instrument=instrument)
+    return render_template('registreren.html', form=form, instrument=instrument, phone=phone, email=email, name=name, gender=gender)
 
 if __name__ == '__main__':
     app.run(debug=True)

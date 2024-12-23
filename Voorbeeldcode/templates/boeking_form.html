@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ actie if actie else "Nieuwe boeking" }}{% endblock %}
+{% block content %}
+<h1>{{ actie if actie else "Boeking toevoegen" }}</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+
+  <div class="mb-3">
+    {{ form.klant.label(class="form-label") }}
+    {{ form.klant(class="form-select") }}
+  </div>
+
+  <div class="mb-3">
+    {{ form.reis.label(class="form-label") }}
+    {{ form.reis(class="form-select") }}
+  </div>
+
+  <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}

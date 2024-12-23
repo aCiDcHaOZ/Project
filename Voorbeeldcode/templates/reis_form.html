@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Reis Toevoegen/Wijzigen{% endblock %}
+{% block content %}
+<h1>{{ actie if actie else "Reis toevoegen" }}</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.bestemming.label(class="form-label") }}
+    {{ form.bestemming(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.prijs.label(class="form-label") }}
+    {{ form.prijs(class="form-control") }}
+  </div>
+  <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}
