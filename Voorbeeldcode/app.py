@@ -9,6 +9,8 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 db.init_app(app)
 
+#Als er een beroep wordt gedaan op een tabel in de DB die niet bestaat,
+#Maak deze dan.
 @app.before_request
 def create_tables():
     db.create_all()
