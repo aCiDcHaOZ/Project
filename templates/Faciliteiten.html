@@ -1,109 +1,7 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faciliteiten - Gaming_Lodge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Algemene styling */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            background-color: #f9fafc;
-            line-height: 1.6;
-        }
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
 
-        /* Header */
-        header {
-            background-color: #1e88e5;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        /* Sectie styling */
-        section {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
-            color: #1e88e5;
-            margin-bottom: 10px;
-        }
-        section p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-        section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        section li {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-        section li span {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-
-        /* Knoppen */
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #1e88e5;
-            color: white;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1em;
-            border-radius: 5px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        .btn:hover {
-            background-color: #1565c0;
-            box-shadow: 0 3px 6px rgba(30, 136, 229, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            background-color: #1e88e5;
-            color: white;
-            padding: 20px 10px;
-            font-size: 0.9em;
-        }
-
-        /* Responsieve stijl */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
-            }
-            section {
-                padding: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
     <!-- Header -->
     <header>
         <h1>Faciliteiten</h1>
@@ -157,4 +55,5 @@
         <p>&copy; 2024 Gaming_Lodge. Alle rechten voorbehouden.</p>
     </footer>
 </body>
-</html>
+
+{% endblock %}

@@ -5,69 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Reisbureau{% endblock %}</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+ 
   <style>
     body {
-        background-color: #fff4e6; /* Lichtgeel achtergrond */
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
     }
-    .navbar {
-        background-color: #ffcc00; /* Geel voor de navigatiebalk */
+    header {
+        background-color: #1e88e5;
+        color: white;
+        padding: 20px 10%;
+        text-align: center;
     }
-    .navbar-brand, .nav-link {
-        color: #d80000 !important; /* Rood voor tekst in de navigatie */
-        font-weight: bold;
+    header h1 {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5em;
     }
-    .navbar-brand:hover, .nav-link:hover {
-        color: #9a0000 !important; /* Donkerder rood bij hover */
+    header p {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.2em;
     }
-    .alert {
-        border-left: 5px solid #d80000; /* Rode accentlijn aan de linkerkant */
-        background-color: #ffeedf; /* Zacht geel/oranje achtergrond */
+    section {
+        padding: 20px 10%;
     }
-    h1, h2, h3 {
-        color: #d80000; /* Rood voor kopteksten */
+    section h2 {
+        color: #1e88e5;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2em;
     }
-    .btn-primary {
-        background-color: #ffcc00;
-        border-color: #d80000;
-        color: #d80000;
+    section p {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        font-size: 1em;
     }
-    .btn-primary:hover {
-        background-color: #d80000;
-        color: #fff;
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
     }
-    .list-group-item {
-        background-color: #fff9eb; /* Subtiel geel voor lijstitems */
-        border-color: #ffcc00;
+    ul li {
+        margin-bottom: 10px;
     }
-    .list-group-item:hover {
-        background-color: #ffe6cc; /* Iets donkerder geel bij hover */
+    ul li strong {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
     }
-    table th {
-        background-color: #ffcc00; /* Gele header in tabellen */
-        color: #d80000;
+    footer {
+        background-color: #1e88e5;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px;
     }
-    table td {
-        background-color: #fffdf4; /* Lichtgeel in tabellen */
+    footer p {
+        font-family: 'Raleway', sans-serif;
+        font-size: 0.9em;
+        margin: 0;
     }
-  </style>
+    a {
+        color: #1e88e5;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="/">Reisbureau</a>
+    <a class="navbar-brand" href="/">Gaming_Lodge</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/klanten">Klanten</a>
+          <a class="nav-link" href="/prijslijst">Prijzen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/reizen">Reizen</a>
+          <a class="nav-link" href="/faciliteiten">Faciliteiten</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/boekingen">Boekingen</a>
+          <a class="nav-link" href="/fotogalerij">fotogalerij</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reglan">LanP_Registreren</a>
+        </li>
+        
+        
+             
+
+        <li class="nav-item">
+          <a class="nav-link" href="/registreren">Account_Registreren</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/boekingsformulier">Boekingen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/overons">Over_Ons</a>
         </li>
       </ul>
     </div>
