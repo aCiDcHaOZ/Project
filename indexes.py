@@ -6,7 +6,7 @@ import os
 from forms import KlantForm, LanForm
 #Importeer de onderstaande klassen van het Py-bestand dbmodel om met de database
 #te kunnen werken.
-from dbmodel import db, Klant, Reis, Boeking
+from dbmodel import db, Klant, Lanparty, Reis, Boeking
  
 #Zorgen dat het standaard pad zoals c:\blah in windows of /blah/ in linux opgehaald
 #kan worden. Hierdoor kan er makkelijker naar bestanden worden gerefereerd.
@@ -67,12 +67,12 @@ def Registreren():
 def lan_toevoegen():
     form = LanForm()
     if form.validate_on_submit():
-        lanparty = Lanparty(naam=form.naam.data, email=form.email.data, telnr=form.telnr.data, datum=form.datum.data, verzoeken=form.verzoeken.data)
+        lanparty = Lanparty(naam=form.naam.data, email=form.email.data, telnr=form.telnr.data, datum=form.datum.data, gasten=form.gasten.data, verzoeken=form.verzoeken.data)
         db.session.add(lanparty)
         db.session.commit()
         flash('Reis succesvol toegevoegd!', 'success')
-        return redirect(url_for('reizen'))
-    return render_template('reis_form.html', form=form, actie='Toevoegen')
+        return redirect(url_for('index'))
+    return render_template('regform_lan.html', form=form, actie='Toevoegen')
 
 
 
