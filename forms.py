@@ -7,9 +7,13 @@ class KlantForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Toevoegen')
 
-class ReisForm(FlaskForm):
-    bestemming = StringField('Bestemming', validators=[DataRequired()])
-    prijs = FloatField('Prijs', validators=[DataRequired()])
+class LanForm(FlaskForm):
+    naam = StringField('Naam', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    telnr = StringField('Telefoonnummer', validators=[DataRequired()])
+    datum = StringField('Datum', validators=[DataRequired()])
+    gasten = StringField('Aantal gasten', validators=[DataRequired()])
+    verzoeken = StringField('Verzoeken')    
     submit = SubmitField('Toevoegen')
 
 class BoekingForm(FlaskForm):

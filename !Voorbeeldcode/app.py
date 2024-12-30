@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash,request
 from flask_sqlalchemy import SQLAlchemy
 from forms import KlantForm, ReisForm, BoekingForm
-from dbmodel import db, Klant, Reis, Boeking
+from models import db, Klant, Reis, Boeking
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reis.db'
@@ -9,8 +9,6 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 db.init_app(app)
 
-#Als er een beroep wordt gedaan op een tabel in de DB die niet bestaat,
-#Maak deze dan.
 @app.before_request
 def create_tables():
     db.create_all()

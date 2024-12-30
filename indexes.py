@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 #Importeer de onderstaande klassen van het Py-bestand Forms om met formulieren 
 #te kunnen werken.
-from forms import KlantForm
+from forms import KlantForm, LanForm
 #Importeer de onderstaande klassen van het Py-bestand dbmodel om met de database
 #te kunnen werken.
 from dbmodel import db, Klant, Reis, Boeking
@@ -60,7 +60,22 @@ def Registreren():
         flash('Klant succesvol toegevoegd!', 'success')
         return redirect(url_for('index'))
     return render_template('registreren.html', form=form)
- 
+
+
+#Een pagina om LAN-party's te registreren
+@app.route('/reglan', methods=['GET', 'POST'])
+def lan_toevoegen():
+    form = LanForm()
+    if form.validate_on_submit():
+        lanparty = Lanparty(naam=form.naam.data, email=form.email.data, telnr=form.telnr.data, datum=form.datum.data, verzoeken=form.verzoeken.data)
+        db.session.add(lanparty)
+        db.session.commit()
+        flash('Reis succesvol toegevoegd!', 'success')
+        return redirect(url_for('reizen'))
+    return render_template('reis_form.html', form=form, actie='Toevoegen')
+
+
+
 # Route naar faciliteiten
 @app.route('/faciliteiten')
 def Faciliteiten():
@@ -71,11 +86,7 @@ def Faciliteiten():
 def FotoGalerij():
     return render_template('fotogalerij.html')
  
-# Route naar registratieformulier voor lan
-@app.route('/reglan')
-def RegLan():
-    return render_template('regform_lan.html')
- 
+
 # Foutafhandeling 404
 @app.errorhandler(404)
 def pagina_niet_gevonden(e):

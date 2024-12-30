@@ -2,168 +2,36 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registratieformulier LAN-Party</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Algemene styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9fafc;
-            color: #333;
-        }
-        header {
-            background-color: #1e88e5;
-            color: white;
-            text-align: center;
-            padding: 30px 10%;
-        }
-        header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        header p {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.1em;
-            margin-top: 10px;
-        }
+<h1>{{ actie if actie else "Lanparty toevoegen" }}</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.naam.label(class="form-label") }}
+    {{ form.naam(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.email.label(class="form-label") }}
+    {{ form.email(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.telnr.label(class="form-label") }}
+    {{ form.telnr(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.datum.label(class="form-label") }}
+    {{ form.datum(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.gasten.label(class="form-label") }}
+    {{ form.gasten(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.verzoeken.label(class="form-label") }}
+    {{ form.verzoeken(class="form-control") }}
+  </div>
+    <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+</form>
 
-        /* Afbeeldingscontainer */
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .image-container img {
-            width: 90%;
-            max-width: 1000px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
 
-        /* Formuliercontainer */
-        .form-container {
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 600px;
-            padding: 20px 30px;
-        }
-        .form-container h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: #1e88e5;
-            text-align: center;
-            margin-bottom: 20px;
-        }
 
-        /* Formulier inputvelden */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            font-family: 'Raleway', sans-serif;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        input, textarea, select {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1em;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-            transition: border 0.3s, box-shadow 0.3s;
-        }
-        input:focus, textarea:focus, select:focus {
-            border-color: #1e88e5;
-            box-shadow: 0 0 5px rgba(30, 136, 229, 0.5);
-        }
-
-        /* Verzenden knop */
-        button {
-            background-color: #1e88e5;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2em;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        button:hover {
-            background-color: #1565c0;
-            box-shadow: 0 3px 6px rgba(30, 136, 229, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1e88e5;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 20px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9em;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <h1>Registratie LAN-Party</h1>
-        <p>Schrijf je in voor de ultieme LAN-party ervaring!</p>
-    </header>
-
-    <!-- Afbeelding -->
-    <div class="image-container">
-        <img src="imgs/LAN%20party.jpg" alt="LAN Party Gaming Zone">
-    </div>
-
-    <!-- Formulier -->
-    <div class="form-container">
-        <h2>Registreer Nu</h2>
-        <form action="#" method="POST">
-            <label for="name">Naam</label>
-            <input type="text" id="name" name="name" placeholder="Jouw volledige naam" required>
-
-            <label for="email">E-mailadres</label>
-            <input type="email" id="email" name="email" placeholder="voorbeeld@e-mail.com" required>
-
-            <label for="phone">Telefoonnummer</label>
-            <input type="tel" id="phone" name="phone" placeholder="06-12345678" required>
-
-            <label for="eventDate">Datum van LAN-Party</label>
-            <input type="date" id="eventDate" name="eventDate" required>
-
-            <label for="guests">Aantal gasten</label>
-            <select id="guests" name="guests" required>
-                <option value="1">1 Persoon</option>
-                <option value="2">2 Personen</option>
-                <option value="3">3 Personen</option>
-                <option value="4">4 Personen</option>
-            </select>
-
-            <label for="comments">Speciale verzoeken</label>
-            <textarea id="comments" name="comments" rows="4" placeholder="Bijvoorbeeld: apparatuur of dieetwensen"></textarea>
-
-            <button type="submit">Verzend Registratie</button>
-        </form>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 LAN-Party Gaming_Lodge. Alle rechten voorbehouden.</p>
-    </footer>
-</body>
-</html>
 {% endblock %}
