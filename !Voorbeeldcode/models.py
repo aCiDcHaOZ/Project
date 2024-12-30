@@ -17,6 +17,5 @@ class Boeking(db.Model):
     klant_id = db.Column(db.Integer, db.ForeignKey('klant.id'), nullable=False)
     reis_id = db.Column(db.Integer, db.ForeignKey('reis.id'), nullable=False)
 
-
     klant = db.relationship('Klant', backref=db.backref('boekingen', lazy=True))
     reis = db.relationship('Reis', backref=db.backref('boekingen', lazy=True))
