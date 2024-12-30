@@ -3,6 +3,16 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
+
+
+#Importeer de onderstaande klassen van het Py-bestand Forms om met formulieren 
+#te kunnen werken.
+from forms import RegForm
+
+#Importeer de onderstaande klassen van het Py-bestand dbmodel om met de database
+#te kunnen werken.
+from dbmodel import db, Klant, Reis, Boeking
+
 import os
 
 #Zorgen dat het standaard pad zoals c:\blah in windows of /blah/ in linux opgehaald
@@ -14,11 +24,14 @@ app = Flask(__name__)
 
 #Zoek in de basisdirectory naar het bestand op het einde van de regel hieronder
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'bungalow.db')
+
 #Zet debug-modus aan/uit voor bewerkingen in de database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 #Koppel de database aan de Flask-applicatie
 db = SQLAlchemy(app)
+
+app.config['SECRET_KEY'] = 'your_secret_key'
 
 #Als er een beroep wordt gedaan op een tabel in de DB die niet bestaat,
 #Maak deze dan aan.
@@ -49,7 +62,14 @@ def BoekingsFormulier():
 #Route naar Registreren
 @app.route('/registreren')
 def Registreren():
-    return render_template('registreren.html')
+    form = RegForm()
+    if form.validate_on_submit():
+        klant = klant(naam=form.naam.data, email=form.email.data, telefoon=form.telefoon.data)
+        db.session.add(klant)
+        db.session.commit()
+        flash('Klant succesvol toegevoegd!', 'success')
+        return redirect(url_for('klanten'))
+    return render_template('registreren.html', form=form)
 
 #Route naar Faciliteiten
 @app.route('/faciliteiten')

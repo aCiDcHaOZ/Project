@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash,request
 from flask_sqlalchemy import SQLAlchemy
 from forms import KlantForm, ReisForm, BoekingForm
-from models import db, Klant, Reis, Boeking
+from dbmodel import db, Klant, Reis, Boeking
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reis.db'
