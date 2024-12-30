@@ -1,150 +1,166 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profiel Wijzigen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #f9f9f9;
             color: #333;
         }
 
         header {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             background-color: #fff;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
             margin: 0;
-            font-size: 2rem;
         }
 
-        form {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        form h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+        header p {
             font-size: 1rem;
-            transition: border-color 0.3s;
+            margin-top: 10px;
+            color: #666;
         }
 
-        input:focus {
-            outline: none;
-            border-color: #007bff;
+        section {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-primary {
-            display: block;
-            width: 100%;
-            padding: 10px;
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        section ul li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        section ul li span {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .btn {
+            display: inline-block;
             background-color: #007bff;
             color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 10px 20px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
         }
 
-        .btn-primary:hover {
+        .btn:hover {
             background-color: #0056b3;
-        }
-
-        .btn-secondary {
-            display: block;
-            margin-top: 10px;
-            width: 100%;
-            padding: 10px;
-            background-color: #f5f5f5;
-            color: #333;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background-color: #e0e0e0;
         }
 
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 20px 10px;
             background-color: #fff;
-            margin-top: 30px;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
 
         footer p {
             margin: 0;
             font-size: 0.9rem;
+            color: #666;
         }
     </style>
-</head>
-<body>
+
     <!-- Header -->
     <header>
-        <h1>Profiel Wijzigen</h1>
+        <h1>Faciliteiten</h1>
+        <p>Ontdek de unieke wereld van Gaming_Lodge</p>
     </header>
 
-    <!-- Formulier -->
-    <form>
-        <h2>Update je gegevens</h2>
-        <label for="username">Gebruikersnaam</label>
-        <input type="text" id="username" placeholder="Voer je gebruikersnaam in">
+    <!-- Inhoud Sectie -->
+    <section>
+        <h2>🎮 Gaming-Ruimtes – Speel in Stijl</h2>
+        <p>Onze gaming-ruimtes zijn ontworpen voor topprestaties én comfort:</p>
+        <ul>
+            <li><span>✔</span> State-of-the-art apparatuur: De nieuwste gaming-PC's, krachtige consoles en ultrawijde monitoren.</li>
+            <li><span>✔</span> Comfortabele stoelen: Perfect voor lange speelsessies zonder concessies aan je houding.</li>
+            <li><span>✔</span> Sfeerverlichting & high-end audio: Dompel jezelf onder in je favoriete games.</li>
+        </ul>
 
-        <label for="email">E-mailadres</label>
-        <input type="email" id="email" placeholder="Voer je e-mailadres in">
+        <h2>🎉 Gratis LAN-Party – Een Unieke Ervaring</h2>
+        <p>Voor onze gasten organiseren wij regelmatig LAN-party's in de Gaming_Lodge. Beleef de ultieme game-ervaring:</p>
+        <ul>
+            <li><span>✔</span> Speel samen met andere gasten in een professionele setting.</li>
+            <li><span>✔</span> Toegang is gratis voor alle gasten van de Gaming_Lodge.</li>
+            <li><span>✔</span> Maak vrienden en deel je passie voor gaming!</li>
+        </ul>
 
-        <label for="password">Nieuw wachtwoord</label>
-        <input type="password" id="password" placeholder="Voer je nieuwe wachtwoord in">
+        <h2>🕶 VR- & AR-Faciliteiten – Stap in een Nieuwe Realiteit</h2>
+        <p>Ervaar de toekomst van gaming met next-gen technologie:</p>
+        <ul>
+            <li><span>✔</span> Next-gen VR-headsets voor ultieme beleving.</li>
+            <li><span>✔</span> AR-games die de werkelijkheid en digitale wereld samenbrengen.</li>
+        </ul>
 
-        <label for="confirm-password">Bevestig wachtwoord</label>
-        <input type="password" id="confirm-password" placeholder="Bevestig je wachtwoord">
+        <h2>🏠 Luxe Gaming Lodges – Jouw Thuis, Maar Beter</h2>
+        <p>Na een dag vol actie kun je ontspannen in onze stijlvolle lodges:</p>
+        <ul>
+            <li><span>✔</span> Comfortabele kamers met zachte bedden en moderne voorzieningen.</li>
+            <li><span>✔</span> Gezellige lounges en privébalkons.</li>
+        </ul>
 
-        <button type="submit" class="btn-primary">Wijzigingen Opslaan</button>
-        <a href="index.html" class="btn-secondary">Terug naar Startpagina</a>
-    </form>
+        <h2>🎲 Bordspellen & Gezellige Hoekjes – Even Offline</h2>
+        <p>Neem pauze van de schermen en geniet:</p>
+        <ul>
+            <li><span>✔</span> Klassieke en moderne bordspellen.</li>
+            <li><span>✔</span> Sfeervolle lounges voor ontspannen avonden.</li>
+        </ul>
+
+        <h2>🌊 Ontspanning & Extra Voorzieningen</h2>
+        <p>Bij Gaming_Lodge draait het niet alleen om gamen:</p>
+        <ul>
+            <li><span>✔</span> Verwarmd zwembad om te ontspannen.</li>
+            <li><span>✔</span> Culinaire verwennerij in ons restaurant en bar.</li>
+            <li><span>✔</span> Natuurwandelingen in de omliggende bossen.</li>
+        </ul>
+
+        <a href="index.html" class="btn">Terug naar Startpagina</a>
+    </section>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Gaming_Lodge. Alle rechten voorbehouden.</p>
     </footer>
 </body>
-</html>
+
+{% endblock %}
