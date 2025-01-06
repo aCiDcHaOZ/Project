@@ -74,6 +74,19 @@ def lan_toevoegen():
         return redirect(url_for('index'))
     return render_template('regform_lan.html', form=form, actie='Toevoegen')
 
+#Route voor de inlogpagina
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    #Maak een nieuw formulier aan vanuit de klasse LoginForm
+    form = LoginForm()
+    if form.validate_on_submit():
+        #Hieronder worden de ingevulde gegevens verwerkt
+        username = form.username.data
+        password = form.password.data
+        #Zijn de ingevoerde gegevens correct? Ga dan weer terug naar Home
+        return redirect(url_for('home'))
+    return render_template('login.html', form=form)
+
 
 
 # Route naar faciliteiten
