@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, Email
 class KlantForm(FlaskForm):
     naam = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    wachtwoord = StringField('Email', validators=[DataRequired()])
     submit = SubmitField('Toevoegen')
 
 class LanForm(FlaskForm):
