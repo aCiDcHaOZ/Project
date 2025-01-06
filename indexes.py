@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 #Importeer de onderstaande klassen van het Py-bestand Forms om met formulieren 
 #te kunnen werken.
-from forms import KlantForm, LanForm
+from forms import KlantForm, LanForm, LoginForm
 #Importeer de onderstaande klassen van het Py-bestand dbmodel om met de database
 #te kunnen werken.
 from dbmodel import db, Klant, Lanparty, Reis, Boeking
@@ -81,7 +81,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         #Hieronder worden de ingevulde gegevens verwerkt
-        username = form.username.data
+        email = form.username.data
         password = form.password.data
         #Zijn de ingevoerde gegevens correct? Ga dan weer terug naar Home
         return redirect(url_for('home'))

@@ -22,7 +22,7 @@ class BoekingForm(FlaskForm):
     submit = SubmitField('Boek')
 
 class LoginForm(FlaskForm):
-    username = StringField('Email adres', validators=[DataRequired(), Email()])
+    email = StringField('Email adres', validators=[DataRequired(), Email()])
     #Hieronder zou een passwordfield moeten zijn, werkt echter niet. voor nu stringfield
     password = StringField('Wachtwoord', validators=[DataRequired()])
     submit = SubmitField('inloggen')
