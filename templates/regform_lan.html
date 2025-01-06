@@ -1,37 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Account Aanmaken{% endblock %}
 {% block content %}
 
-<h1>{{ actie if actie else "Lanparty toevoegen" }}</h1>
+<h1>Account Aanmaken</h1>
 <form method="post">
   {{ form.hidden_tag() }}
   <div class="mb-3">
-    {{ form.naam.label(class="form-label") }}
-    {{ form.naam(class="form-control") }}
+    {{ form.username.label(class="form-label") }}
+    {{ form.username(class="form-control") }}
   </div>
   <div class="mb-3">
     {{ form.email.label(class="form-label") }}
     {{ form.email(class="form-control") }}
   </div>
   <div class="mb-3">
-    {{ form.telnr.label(class="form-label") }}
-    {{ form.telnr(class="form-control") }}
+    {{ form.password.label(class="form-label") }}
+    {{ form.password(class="form-control") }}
   </div>
   <div class="mb-3">
-    {{ form.datum.label(class="form-label") }}
-    {{ form.datum(class="form-control") }}
+    {{ form.confirm_password.label(class="form-label") }}
+    {{ form.confirm_password(class="form-control") }}
   </div>
-  <div class="mb-3">
-    {{ form.gasten.label(class="form-label") }}
-    {{ form.gasten(class="form-control") }}
-  </div>
-  <div class="mb-3">
-    {{ form.verzoeken.label(class="form-label") }}
-    {{ form.verzoeken(class="form-control") }}
-  </div>
-    <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+  <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
 </form>
-
-
 
 {% endblock %}
