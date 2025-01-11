@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 #Importeer de onderstaande klassen van het Py-bestand Forms om met formulieren 
 #te kunnen werken.
-from forms import KlantForm, LanForm, LoginForm
+from forms import KlantForm, LanForm, LoginForm, BoekingForm
 #Importeer de onderstaande klassen van het Py-bestand dbmodel om met de database
 #te kunnen werken.
 from dbmodel import db, Klant, Lanparty, Reis, Boeking
@@ -47,6 +47,19 @@ def OverOns():
 # Route naar boekingsformulier
 @app.route('/boekingsformulier')
 def BoekingsFormulier():
+    form = BoekingForm()
+    if form.validate_on_submit():
+        #Strings defineren adhv pointers in de HTML
+        boeking = Boeking(
+            name=form.username.data, 
+            email=form.email.data, 
+            phone=form.phone.data, 
+            arrival=form.arrival.data, 
+            departure=form.departure.data, 
+            adults=form.adults.data, 
+            special=form.special.data, 
+            payment=form.payment.data, 
+            promo=form.promo.data)
     return render_template('Boekingsformulier.html')
  
 # Route naar registreren
@@ -67,7 +80,7 @@ def Registreren():
 def lan_toevoegen():
     form = LanForm()
     if form.validate_on_submit():
-        lanparty = Lanparty(naam=form.naam.data, email=form.email.data, telnr=form.telnr.data, datum=form.datum.data, gasten=form.gasten.data, verzoeken=form.verzoeken.data)
+        lanparty = Lanparty(naam=form.username.data, email=form.email.data, password=form.telnr.data, datum=form.datum.data, gasten=form.gasten.data, verzoeken=form.verzoeken.data)
         db.session.add(lanparty)
         db.session.commit()
         flash('Reis succesvol toegevoegd!', 'success')
