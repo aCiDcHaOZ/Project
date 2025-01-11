@@ -123,31 +123,22 @@
     <form method="post">
         {{ form.hidden_tag() }}
         <div class="mb-3">
-            {{ form.naam.label(class="form-label") }}
-            {{ form.naam(class="form-control") }}
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control") }}
         </div>
         <div class="mb-3">
             {{ form.email.label(class="form-label") }}
             {{ form.email(class="form-control") }}
         </div>
+        <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control") }}
+        </div>
+
         <button type="submit" class="btn">{{ form.submit.label.text }}</button>
     </form>
 </section>
 
-<section>
-    <h2>Account aanmaken</h2>
-    <form method="post" action="/account-aanmaken">
-        <div class="mb-3">
-            <label for="email" class="form-label">E-mailadres</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Wachtwoord</label>
-            <input type="password" id="password" name="password" class="form-control" required>
-        </div>
-        <button type="submit" class="btn">Account aanmaken</button>
-    </form>
-</section>
 
 <footer>
     <p>&copy; 2025 Mijn Website. Alle rechten voorbehouden.</p>

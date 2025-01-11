@@ -3,9 +3,9 @@ from wtforms import StringField, FloatField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Email
 
 class KlantForm(FlaskForm):
-    naam = StringField('Naam', validators=[DataRequired()])
+    username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    wachtwoord = StringField('Email', validators=[DataRequired()])
+    password = StringField('Wachtwoord', validators=[DataRequired()])
     submit = SubmitField('Toevoegen')
 
 class LanForm(FlaskForm):

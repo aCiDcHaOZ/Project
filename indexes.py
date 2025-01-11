@@ -54,7 +54,7 @@ def BoekingsFormulier():
 def Registreren():
     form = KlantForm()
     if form.validate_on_submit():
-        klant = Klant(naam=form.naam.data, email=form.email.data, wachtwoord=form.wachtwoord.data)
+        klant = Klant(username=form.username.data, email=form.email.data, password=form.password.data)
         db.session.add(klant)
         db.session.commit()
         flash('Klant succesvol toegevoegd!', 'success')
