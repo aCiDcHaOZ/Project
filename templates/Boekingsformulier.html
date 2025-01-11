@@ -122,13 +122,15 @@
         <form action="#" method="POST">
             <label for="name">Naam</label>
             <input type="text" id="name" name="name" placeholder="Voor- en achternaam" required>
-
+                    {{ form.username.label }}
+                    {{ form.username }}
             <label for="email">E-mailadres</label>
             <input type="email" id="email" name="email" placeholder="voorbeeld@e-mail.com" required>
-
+                    {{ form.email.label }}
+                    {{ form.email }}
             <label for="phone">Telefoonnummer</label>
             <input type="tel" id="phone" name="phone" placeholder="06-12345678" required>
-
+                
             <label for="arrival">Aankomstdatum</label>
             <input type="date" id="arrival" name="arrival" required>
 
