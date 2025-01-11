@@ -45,7 +45,7 @@ def OverOns():
     return render_template('overons.html')
  
 # Route naar boekingsformulier
-@app.route('/boekingsformulier')
+@app.route('/boekingsformulier', methods=['GET', 'POST'])
 def BoekingsFormulier():
     form = BoekingForm()
     if form.validate_on_submit():
@@ -60,7 +60,7 @@ def BoekingsFormulier():
             special=form.special.data, 
             payment=form.payment.data, 
             promo=form.promo.data)
-    return render_template('Boekingsformulier.html')
+    return render_template('Boekingsformulier.html', form=form)
  
 # Route naar registreren
 @app.route('/registreren', methods=['GET', 'POST'])
