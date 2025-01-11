@@ -17,18 +17,13 @@ class LanForm(FlaskForm):
     verzoeken = StringField('Verzoeken')    
     submit = SubmitField('Toevoegen')
 
-class BoekingForm(FlaskForm):
-    klant = SelectField('Klant', coerce=int)
-    reis = SelectField('Reis', coerce=int)
-    submit = SubmitField('Boek')
-
 class LoginForm(FlaskForm):
     email = StringField('Email adres', validators=[DataRequired(), Email()])
     #Hieronder zou een passwordfield moeten zijn, werkt echter niet. voor nu stringfield
     password = StringField('Wachtwoord', validators=[DataRequired()])
     submit = SubmitField('inloggen')
 
-class boekingForm(FlaskForm):
+class BoekingForm(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Telefoonnummer', validators=[DataRequired()])
@@ -38,3 +33,4 @@ class boekingForm(FlaskForm):
     special = StringField('SpecialeWensen')
     payment = StringField('Payment', validators=[DataRequired()])
     promo = StringField('PromoCode')
+    submit = SubmitField('Boek')
