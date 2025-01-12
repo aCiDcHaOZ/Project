@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect
 from app import app, db, bcrypt
-from forms import KlantForm, LoginForm, LanForm
-from dbmodel import Klant
+from Formulieren import RegistratieFormulier, LoginFormulier, LanFormulier, BoekingFormulier
+from dbmodel import KlantTabel
 from flask_login import login_user, current_user, logout_user, login_required
 
 # Route naar de hoofdpagina
@@ -23,10 +23,13 @@ def OverOns():
 # Route naar registreren
 @app.route('/registreren', methods=['GET', 'POST'])
 def Registreren():
-    form = KlantForm()
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RegistratieFormulier()
     if form.validate_on_submit():
-        klant = Klant(username=form.username.data, email=form.email.data, password=form.password.data)
-        db.session.add(klant)
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        Klanttabel = KlantTabel(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(Klanttabel)
         db.session.commit()
         flash('Klant succesvol toegevoegd!', 'success')
         return redirect(url_for('index'))
@@ -36,9 +39,9 @@ def Registreren():
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    form = LoginForm()
+    form = LoginFormulier()
     if form.validate_on_submit():
-        user = Klant.query.filter_by(email=form.email.data).first()
+        user = KlantTabel.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=True)
             return redirect(url_for('user'))
@@ -75,9 +78,9 @@ def pagina_niet_gevonden(e):
 @app.route('/reglan', methods=['GET', 'POST'])
 @login_required
 def lan_toevoegen():
-    form = LanForm()
+    form = LanFormulier()
     if form.validate_on_submit():
-        lanparty = LanForm(naam=form.username.data, email=form.email.data, password=form.telnr.data, datum=form.datum.data, gasten=form.gasten.data, verzoeken=form.verzoeken.data)
+        lanparty = LanFormulier(naam=form.username.data, email=form.email.data, password=form.telnr.data, datum=form.datum.data, gasten=form.gasten.data, verzoeken=form.verzoeken.data)
         db.session.add(lanparty)
         db.session.commit()
         flash('Reis succesvol toegevoegd!', 'success')
@@ -87,11 +90,11 @@ def lan_toevoegen():
 # Route naar boekingsformulier
 @app.route('/boekingsformulier', methods=['GET', 'POST'])
 @login_required
-def BoekingsFormulier():
-    form = BoekingForm()
+def BoekingFormulier():
+    form = BoekingFormulier()
     if form.validate_on_submit():
         #Strings defineren adhv pointers in de HTML
-        boeking = Boeking(
+        boeking = BoekingFormulier(
             name=form.username.data, 
             email=form.email.data, 
             phone=form.phone.data, 

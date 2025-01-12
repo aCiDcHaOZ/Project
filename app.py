@@ -6,7 +6,7 @@ import os
 
 # Start een nieuwe Flask-applicatie en configureer
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://bungalow.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['TEMPLATES_AUTO_RELOAD'] = True

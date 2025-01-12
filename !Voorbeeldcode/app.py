@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, flash,request
 from flask_sqlalchemy import SQLAlchemy
-from forms import KlantForm, ReisForm, BoekingForm
+from Formulieren import KlantForm, ReisForm, BoekingForm
 from models import db, Klant, Reis, Boeking
 
 app = Flask(__name__)

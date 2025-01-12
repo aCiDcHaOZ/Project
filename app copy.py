@@ -5,7 +5,7 @@ from flask_login import LoginManager
 import os
 # Importeer de onderstaande klassen van het Py-bestand Forms om met formulieren 
 # te kunnen werken.
-from forms import KlantForm, LanForm, LoginForm, BoekingForm
+from Formulieren import KlantForm, LanForm, LoginForm, BoekingForm
 # Importeer de onderstaande klassen van het Py-bestand dbmodel om met de database
 # te kunnen werken.
 from dbmodel import db, Klant, Lanparty, Reis, Boeking

@@ -3,17 +3,7 @@ from flask_login import UserMixin
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Klant.query.get(int(user_id))
-
-class Klant(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), nullable=False)
-    email = db.Column(db.String(120), nullable=False)
-    password = db.Column(db.String(120), nullable=False)
-
-    # Projectie van een object binnen de functie
-    def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
+    return KlantTabel.query.get(int(user_id))
 
 class Lanparty(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,12 +14,25 @@ class Lanparty(db.Model):
     gasten = db.Column(db.Integer, nullable=False)
     verzoeken = db.Column(db.String(120))
 
-class Boeking(db.Model):
+
+class KlantTabel(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    klant_id = db.Column(db.Integer, db.ForeignKey('klant.id'), nullable=False)
-    reis_id = db.Column(db.Integer, db.ForeignKey('reis.id'), nullable=False)
+    username = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+    # Projectie van een object binnen de functie
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}')"
+
+
+#Vervallen
+#class Boeking(db.Model):
+#    id = db.Column(db.Integer, primary_key=True)
+#    klant_id = db.Column(db.Integer, db.ForeignKey('klant.id'), nullable=False)
+#    reis_id = db.Column(db.Integer, db.ForeignKey('reis.id'), nullable=False)
 
 #Defineer de relaties tussen verschillende tabellen in de database.
 #lazy=true betekent dat de gerelateerde gegevens pas worden opgehaald als ze nodig zijn.
-    klant = db.relationship('Klant', backref=db.backref('boekingen', lazy=True))
-    reis = db.relationship('Reis', backref=db.backref('boekingen', lazy=True))
+#    klant = db.relationship('Klant', backref=db.backref('boekingen', lazy=True))
+#    reis = db.relationship('Reis', backref=db.backref('boekingen', lazy=True))
