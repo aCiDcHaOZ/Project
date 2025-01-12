@@ -1,14 +1,28 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, FloatField, SelectField, SubmitField, DateField
-from wtforms.validators import DataRequired, Email
+from wtforms import StringField, SubmitField, DateField, PasswordField
+from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
+from dbmodel import KlantTabel
 
-class KlantForm(FlaskForm):
+class RegistratieFormulier(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = StringField('Wachtwoord', validators=[DataRequired()])
-    submit = SubmitField('Toevoegen')
+    password = PasswordField('Wachtwoord', validators=[DataRequired()])
+    confirm_password = PasswordField('Bevestig wachtwoord', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Registreer')
 
-class LanForm(FlaskForm):
+    #Controleren of gebruikersnaam al in gebruik is
+    def validate_username(self, username):
+        user = KlantTabel.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('Deze gebruikersnaam is al bezet.')
+
+    #Controleren of email adres al in gebruik is
+    def validate_email(self, email):
+        user = KlantTabel.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('Deze email is al geregistreerd.')
+
+class LanFormulier(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     password = StringField('Wachtwoord', validators=[DataRequired(), Email()])
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -18,13 +32,12 @@ class LanForm(FlaskForm):
     verzoeken = StringField('Verzoeken')    
     submit = SubmitField('Toevoegen')
 
-class LoginForm(FlaskForm):
+class LoginFormulier(FlaskForm):
     email = StringField('Email adres', validators=[DataRequired(), Email()])
-    #Hieronder zou een passwordfield moeten zijn, werkt echter niet. voor nu stringfield
-    password = StringField('Wachtwoord', validators=[DataRequired()])
+    password = PasswordField('Wachtwoord', validators=[DataRequired()])
     submit = SubmitField('inloggen')
 
-class BoekingForm(FlaskForm):
+class BoekingFormulier(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Telefoonnummer', validators=[DataRequired()])
@@ -35,3 +48,4 @@ class BoekingForm(FlaskForm):
     payment = StringField('Payment', validators=[DataRequired()])
     promo = StringField('PromoCode')
     submit = SubmitField('Boek')
+

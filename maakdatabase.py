@@ -13,12 +13,12 @@ cursor = conn.cursor()
 # Tabel maken: bungalows
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS bungalows (
-    bungalow_nummer INTEGER PRIMARY KEY,
+    bungalow_id INTEGER PRIMARY KEY,
     bungalow_naam TEXT NOT NULL
 )
 ''')
 cursor.executemany('''
-INSERT INTO bungalows (bungalow_nummer, bungalow_naam)
+INSERT INTO bungalows (bungalow_id, bungalow_naam)
 VALUES (?, ?)
 ''', [
     (1, 'counterstrike'),
