@@ -1,12 +1,26 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, FloatField, SelectField, SubmitField, DateField
-from wtforms.validators import DataRequired, Email
+from wtforms import StringField, FloatField, SelectField, SubmitField, DateField, PasswordField
+from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
+from dbmodel import Klant
 
 class KlantForm(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = StringField('Wachtwoord', validators=[DataRequired()])
-    submit = SubmitField('Toevoegen')
+    password = PasswordField('Wachtwoord', validators=[DataRequired()])
+    confirm_password = PasswordField('Bevestig wachtwoord', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Registreer')
+
+    #Controleren of gebruikersnaam al in gebruik is
+    def validate_username(self, username):
+        user = Klant.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('Deze gebruikersnaam is al bezet.')
+
+    #Controleren of email adres al in gebruik is
+    def validate_email(self, email):
+        user = Klant.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError('Deze email is al geregistreerd.')
 
 class LanForm(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
@@ -20,8 +34,7 @@ class LanForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField('Email adres', validators=[DataRequired(), Email()])
-    #Hieronder zou een passwordfield moeten zijn, werkt echter niet. voor nu stringfield
-    password = StringField('Wachtwoord', validators=[DataRequired()])
+    password = PasswordField('Wachtwoord', validators=[DataRequired()])
     submit = SubmitField('inloggen')
 
 class BoekingForm(FlaskForm):
