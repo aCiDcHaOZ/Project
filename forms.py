@@ -10,6 +10,7 @@ class KlantForm(FlaskForm):
 
 class LanForm(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
+    password = StringField('Wachtwoord', validators=[DataRequired(), Email()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     telnr = StringField('Telefoonnummer', validators=[DataRequired()])
     datum = StringField('Datum', validators=[DataRequired()])
