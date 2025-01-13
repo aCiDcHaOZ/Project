@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect
 from app import app, db, bcrypt
 from Formulieren import RegistratieFormulier, LoginFormulier, LanFormulier, BoekingFormulier
-from dbmodel import KlantTabel, Lanparty
+from dbmodel import KlantTabel, LanTabel, BoekingTabel
 from flask_login import login_user, current_user, logout_user, login_required
 
 # Route naar de hoofdpagina
@@ -28,7 +28,10 @@ def Registreren():
     form = RegistratieFormulier()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        Klanttabel = KlantTabel(username=form.username.data, email=form.email.data, password=hashed_password)
+        Klanttabel = KlantTabel(
+            username=form.username.data, 
+            email=form.email.data, 
+            password=hashed_password)
         db.session.add(Klanttabel)
         db.session.commit()
         flash('Klant succesvol toegevoegd!', 'success')
@@ -90,30 +93,34 @@ def lan_toevoegen():
             opmerking=form.opmerking.data)
         db.session.add(lanformulier)
         db.session.commit()
-        flash('Reis succesvol toegevoegd!', 'success')
+        flash('LANparty succesvol toegevoegd!', 'success')
         return redirect(url_for('home'))
     return render_template('regform_lan.html', form=form, actie='Toevoegen')
 
 # Route naar boekingsformulier
 @app.route('/boekingsformulier', methods=['GET', 'POST'])
 @login_required
-def BoekingFormulier():
+def boeking_toevoegen():
     form = BoekingFormulier()
     if form.validate_on_submit():
         #Strings defineren adhv pointers in de HTML
-        boeking = BoekingFormulier(
-            name=form.username.data, 
+        boekingformulier = BoekingTabel(
+            username=form.username.data, 
             email=form.email.data, 
             phone=form.phone.data, 
-            arrival=form.arrival.data, 
-            departure=form.departure.data, 
+            arrival=form.arrival.data,
+            duration=form.duration.data,
             adults=form.adults.data, 
             special=form.special.data, 
             payment=form.payment.data, 
             promo=form.promo.data)
+        db.session.add(boekingformulier)
+        db.session.commit()
+        flash('Boeking succesvol toegevoegd!', 'success')
+        return redirect(url_for('home'))
     return render_template('Boekingsformulier.html', form=form)
 
-@app.route('/lanparties')
-def lanparties():
-    lanparties = Lanparties.query.all()
-    return render_template('reis.html', reizen=reizen)
+#@app.route('/lanparties')
+#def lanparties():
+#    lanparties = Lanparties.query.all()
+#    return render_template('reis.html', reizen=reizen)

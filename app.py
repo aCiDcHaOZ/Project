@@ -35,6 +35,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # Alle flask routes importeren uit routes.py
 from routes import *
  
-# Start de applicatie met extra feedback als de boel naar de klote gaat. (debug=true)
+# Start de applicatie met extra feedback. Handig voor als de boel naar de klote gaat. (debug=true)
 if __name__ == "__main__":
     app.run(debug=True)

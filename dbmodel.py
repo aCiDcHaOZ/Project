@@ -15,11 +15,13 @@ class LanTabel(db.Model):
     aantalstoelen = db.Column(db.Integer, nullable=False)
     opmerking = db.Column(db.String(120))
 
-class BoekingTabel(db.model):
+class BoekingTabel(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(80), nullable=False)
     phone = db.Column(db.String(80), nullable=False)
     arrival = db.Column(db.String(80), nullable=False)
+    duration = db.Column(db.String(80), nullable=False)
     adults = db.Column(db.String(80), nullable=False)
     special = db.Column(db.String(80), nullable=False)
     payment = db.Column(db.String(80), nullable=False)
