@@ -5,76 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Portal</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
         body {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1b1b1b;
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(90deg, #1a1a1a, #333);
-            color: #00ffcc;
+            background: linear-gradient(90deg, #1f1f1f, #292929);
+            color: #76c7c0;
             padding: 20px 10%;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
         }
 
         header h1 {
             margin: 0;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 3em;
+            font-weight: 700;
+            font-size: 2.5em;
         }
 
         header p {
             font-size: 1.2em;
+            margin-top: 10px;
         }
 
         section {
             padding: 20px 10%;
-            background-color: #111;
+            background-color: #1e1e1e;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+            margin: 20px auto;
+            max-width: 800px;
         }
 
         section h2 {
-            color: #ff0080;
-            margin-bottom: 10px;
-            font-family: 'Press Start 2P', cursive;
+            color: #76c7c0;
+            margin-bottom: 15px;
             font-size: 2em;
         }
 
         section p {
-            line-height: 1.8;
             font-size: 1.1em;
         }
 
         ul {
-            list-style-type: square;
+            list-style-type: disc;
             padding-left: 20px;
-            font-size: 1.1em;
         }
 
         ul li {
             margin-bottom: 10px;
         }
 
-        ul li strong {
-            color: #ff0080;
-        }
-
         footer {
-            background: linear-gradient(90deg, #333, #1a1a1a);
-            color: #00ffcc;
+            background: linear-gradient(90deg, #292929, #1f1f1f);
+            color: #76c7c0;
             text-align: center;
-            padding: 10px 0;
+            padding: 15px 0;
             margin-top: 20px;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.8);
         }
 
         footer p {
@@ -83,14 +78,40 @@
         }
 
         a {
-            color: #ff0080;
+            color: #76c7c0;
             text-decoration: none;
         }
 
         a:hover {
-            text-shadow: 0 0 10px #ff0080;
             text-decoration: underline;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid #76c7c0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Game Portal</h1>
+        <p>Your gateway to the latest in gaming.</p>
+    </header>
+    <section>
+        <h2>About Us</h2>
+        <p>We provide exclusive content, events, and the latest gaming news. Join us to level up your gaming experience.</p>
+        <img src="game_example.jpg" alt="Gaming example">
+    </section>
+    <footer>
+        <p>&copy; 2025 Game Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
 
         img {
             max-width: 80%;
