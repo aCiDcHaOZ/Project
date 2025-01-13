@@ -1,136 +1,218 @@
+Oude 2: 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Lodge</title>
+    <title>Game Portal</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
         body {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle, #1a1a1d, #121212);
-            color: #ffffff;
-            text-align: center;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(90deg, #ff4500, #8a2be2);
-            color: #fff;
-            padding: 20px 0;
+            background: linear-gradient(90deg, #1f1f1f, #292929);
+            color: #76c7c0;
+            padding: 20px 10%;
+            text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
         }
 
         header h1 {
-            font-size: 2.8em;
             margin: 0;
+            font-weight: 700;
+            font-size: 2.5em;
         }
 
         header p {
             font-size: 1.2em;
-            margin: 10px 0 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #20232a;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-        }
-
-        nav a {
-            color: #61dafb;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1em;
-        }
-
-        nav a:hover {
-            color: #ff4500;
+            margin-top: 10px;
         }
 
         section {
-            padding: 20px;
-            background: #282c34;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            padding: 20px 10%;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
             margin: 20px auto;
             max-width: 800px;
-            color: #61dafb;
         }
 
         section h2 {
-            font-size: 2em;
+            color: #76c7c0;
             margin-bottom: 15px;
+            font-size: 2em;
         }
 
         section p {
             font-size: 1.1em;
-            margin: 10px 0;
         }
 
-        img {
-            max-width: 80%;
-            height: auto;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-            border: 2px solid #ff4500;
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
         }
 
         footer {
-            background: linear-gradient(90deg, #8a2be2, #ff4500);
-            color: #fff;
+            background: linear-gradient(90deg, #292929, #1f1f1f);
+            color: #76c7c0;
+            text-align: center;
             padding: 15px 0;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.8);
             margin-top: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.8);
         }
 
         footer p {
-            margin: 0;
             font-size: 0.9em;
+            margin: 0;
         }
 
-        .button {
-            background-color: #ff4500;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
+        a {
+            color: #76c7c0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
             border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            margin-top: 15px;
+            border: 1px solid #76c7c0;
         }
-
-        .button:hover {
-            background-color: #8a2be2;
-        }
-
     </style>
 </head>
 <body>
     <header>
-        <h1>Gaming Lodge</h1>
+        <h1>Game Portal</h1>
+        <p>Your gateway to the latest in gaming.</p>
+    </header>
+    <section>
+        <h2>About Us</h2>
+        <p>We provide exclusive content, events, and the latest gaming news. Join us to level up your gaming experience.</p>
+        <img src="game_example.jpg" alt="Gaming example">
+    </section>
+    <footer>
+        <p>&copy; 2025 Game Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+        img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Game Portal</h1>
         <p>Welcome to the ultimate gaming hub.</p>
     </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Gallery</a>
-        <a href="#">Events</a>
-        <a href="#">Contact</a>
-    </nav>
     <section>
         <h2>About Us</h2>
         <p>We offer exclusive content, events, and the latest gaming news. Join us to level up your gaming experience.</p>
         <img src="game_example.jpg" alt="Gaming example">
-        <button class="button">Join Now</button>
     </section>
     <footer>
-        <p>&copy; 2025 Gaming Lodge. All rights reserved.</p>
+        <p>&copy; 2025 Game Portal. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
+        img {
+            max-width: 80%; /* Maakt de afbeelding kleiner in verhouding */
+            height: auto; /* Zorgt dat de afbeelding proportioneel blijft */
+            display: block; /* Zorgt dat de afbeelding netjes in het midden kan staan */
+            margin: 20px auto; /* Plaatst ruimte rondom en centreert */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Voegt schaduw toe */
+            border-radius: 8px; /* Geeft een lichte afronding aan de hoeken */
+        }
+
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">Gaming_Lodge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/overons">Over_Ons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/fotogalerij">fotogalerij</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faciliteiten">Faciliteiten</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/prijslijst">Prijzen</a>
+        </li>
+        
+        
+             
+
+        <li class="nav-item">
+          <a class="nav-link" href="/registreren">Account_Registreren</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/boekingsformulier">Boekingen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reglan">LanP_Registreren</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Inloggen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account-wijzigen">Ingelogd_Als: {{ current_user.username }}</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-3">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="alert alert-info" role="alert">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
