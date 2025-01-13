@@ -78,13 +78,14 @@ def pagina_niet_gevonden(e):
 @app.route('/reglan', methods=['GET', 'POST'])
 @login_required
 def lan_toevoegen():
+    # Maak een nieuw formulier (form) van het type LanFormulier
     form = LanFormulier()
     if form.validate_on_submit():
-        form = LanFormulier(lannaam=form.lannaam.data, organisator=form.organisator.data, email=form.email.data, datum=form.datum.data, aantalstoelen=form.aantalstoelen.data, opmerking=form.opmerking.data)
-        db.session.add(Lanparty)
+        lanformulier = Lanparty(lannaam=form.lannaam.data, organisator=form.organisator.data, email=form.email.data, datum=form.datum.data, aantalstoelen=form.aantalstoelen.data, opmerking=form.opmerking.data)
+        db.session.add(lanformulier)
         db.session.commit()
         flash('Reis succesvol toegevoegd!', 'success')
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     return render_template('regform_lan.html', form=form, actie='Toevoegen')
 
 # Route naar boekingsformulier
