@@ -9,36 +9,154 @@
         <p>Ontdek onze ruimtes en faciliteiten</p>
     </header>
 
-    <!-- Fotogalerij -->
-    <div class="gallery">
-        <div class="gallery-item">
+    <!-- Diashow -->
+    <div class="slideshow-container">
+        <div class="slide fade">
             <img src="/static/gamingroom.jpg" alt="Gaming Room">
-            <p>Gaming Room</p>
+            <div class="caption">Gaming Room</div>
         </div>
-        <div class="gallery-item">
+        <div class="slide fade">
             <img src="/static/disco.jpg" alt="Disco">
-            <p>Disco</p>
+            <div class="caption">Disco</div>
         </div>
-        <div class="gallery-item">
+        <div class="slide fade">
             <img src="/static/zwembad.jpg" alt="Zwembad">
-            <p>Gezamenlijk Zwembad</p>
+            <div class="caption">Gezamenlijk Zwembad</div>
         </div>
-        <div class="gallery-item">
+        <div class="slide fade">
             <img src="/static/Keuken.jpg" alt="Keuken">
-            <p>Keuken</p>
+            <div class="caption">Keuken</div>
         </div>
-        <div class="gallery-item">
+        <div class="slide fade">
             <img src="/static/Badkamer.jpg" alt="Badkamer">
-            <p>Badkamer</p>
+            <div class="caption">Badkamer</div>
         </div>
-        <div class="gallery-item">
+        <div class="slide fade">
             <img src="/static/Woonkamer.jpg" alt="Woonkamer">
-            <p>Woonkamer</p>
+            <div class="caption">Woonkamer</div>
         </div>
+
+        <!-- Navigatie knoppen -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
-   
+    <!-- Stippen voor navigatie -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 5000); // Wissel elke 5 seconden
+        }
+
+        function plusSlides(n) {
+            slideIndex += n - 1;
+            showSlides();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n - 1;
+            showSlides();
+        }
+    </script>
+
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 100%;
+        }
+
+        .caption {
+            color: #fff;
+            font-size: 18px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            user-select: none;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation: fade 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+    </style>
 </body>
 
 {% endblock %}
-
