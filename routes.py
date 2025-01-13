@@ -32,7 +32,7 @@ def Registreren():
         db.session.add(Klanttabel)
         db.session.commit()
         flash('Klant succesvol toegevoegd!', 'success')
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     return render_template('registreren.html', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
