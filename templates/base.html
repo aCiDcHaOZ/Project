@@ -1,136 +1,218 @@
+Oude 2: 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Portal</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
         body {
-            font-family: 'Orbitron', sans-serif;
-            background-color: #0d0d0d;
-            color: #e0e0e0;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        nav.navbar {
-            background: linear-gradient(90deg, #1a1a2e, #16213e);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-        }
-
-        nav a.navbar-brand, nav a.nav-link {
-            color: #76c7c0;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        nav a.nav-link:hover {
-            color: #00ffcc;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
 
         header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, #16213e, #0f3460);
+            background: linear-gradient(90deg, #1f1f1f, #292929);
             color: #76c7c0;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+            padding: 20px 10%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
         }
 
         header h1 {
-            font-size: 3rem;
+            margin: 0;
             font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 2.5em;
         }
 
         header p {
-            font-size: 1.2rem;
-            margin-top: 0;
+            font-size: 1.2em;
+            margin-top: 10px;
         }
 
         section {
-            padding: 30px;
+            padding: 20px 10%;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
             margin: 20px auto;
-            background-color: #1f1f2e;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             max-width: 800px;
-            text-align: center;
         }
 
         section h2 {
-            color: #00ffcc;
-            margin-bottom: 20px;
+            color: #76c7c0;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        section p {
+            font-size: 1.1em;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
         }
 
         footer {
-            background: #16213e;
+            background: linear-gradient(90deg, #292929, #1f1f1f);
             color: #76c7c0;
             text-align: center;
             padding: 15px 0;
             margin-top: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.8);
         }
 
-        footer a {
-            color: #00ffcc;
+        footer p {
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        a {
+            color: #76c7c0;
             text-decoration: none;
         }
 
-        footer a:hover {
+        a:hover {
             text-decoration: underline;
         }
 
         img {
             max-width: 100%;
             height: auto;
-            border: 2px solid #00ffcc;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid #76c7c0;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="/">Game Portal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/pricing">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <header>
         <h1>Game Portal</h1>
-        <p>Your gateway to the future of gaming.</p>
+        <p>Your gateway to the latest in gaming.</p>
     </header>
+    <section>
+        <h2>About Us</h2>
+        <p>We provide exclusive content, events, and the latest gaming news. Join us to level up your gaming experience.</p>
+        <img src="game_example.jpg" alt="Gaming example">
+    </section>
+    <footer>
+        <p>&copy; 2025 Game Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
 
+
+        img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Game Portal</h1>
+        <p>Welcome to the ultimate gaming hub.</p>
+    </header>
     <section>
         <h2>About Us</h2>
         <p>We offer exclusive content, events, and the latest gaming news. Join us to level up your gaming experience.</p>
         <img src="game_example.jpg" alt="Gaming example">
     </section>
-
     <footer>
-        <p>&copy; 2025 Game Portal. All rights reserved. | <a href="/privacy">Privacy Policy</a></p>
+        <p>&copy; 2025 Game Portal. All rights reserved.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+        img {
+            max-width: 80%; /* Maakt de afbeelding kleiner in verhouding */
+            height: auto; /* Zorgt dat de afbeelding proportioneel blijft */
+            display: block; /* Zorgt dat de afbeelding netjes in het midden kan staan */
+            margin: 20px auto; /* Plaatst ruimte rondom en centreert */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Voegt schaduw toe */
+            border-radius: 8px; /* Geeft een lichte afronding aan de hoeken */
+        }
+
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">Gaming_Lodge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/overons">Over_Ons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/fotogalerij">fotogalerij</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faciliteiten">Faciliteiten</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/prijslijst">Prijzen</a>
+        </li>
+        
+        
+             
+
+        <li class="nav-item">
+          <a class="nav-link" href="/registreren">Account_Registreren</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/boekingsformulier">Boekingen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reglan">LanP_Registreren</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Inloggen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account-wijzigen">Ingelogd_Als: {{ current_user.username }}</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-3">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="alert alert-info" role="alert">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
