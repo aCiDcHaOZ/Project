@@ -26,7 +26,7 @@ class LanFormulier(FlaskForm):
     lannaam = StringField('Naam Lanparty', validators=[DataRequired()])
     organisator = StringField('Naam', validators=[DataRequired()]) 
     email = StringField('Email', validators=[DataRequired(), Email()])
-    datum = StringField('Datum', validators=[DataRequired()])
+    datum = DateField('Datum', validators=[DataRequired()])
     aantalstoelen = StringField('Aantal plekken', validators=[DataRequired()])
     opmerking = StringField('Opmerking')    
     submit = SubmitField('Toevoegen')

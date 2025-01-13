@@ -80,8 +80,8 @@ def pagina_niet_gevonden(e):
 def lan_toevoegen():
     form = LanFormulier()
     if form.validate_on_submit():
-        lanparty = LanFormulier(naam=form.username.data, email=form.email.data, password=form.telnr.data, datum=form.datum.data, gasten=form.gasten.data, verzoeken=form.verzoeken.data)
-        db.session.add(lanparty)
+        form = LanFormulier(lannaam=form.lannaam.data, organisator=form.organisator.data, email=form.email.data, datum=form.datum.data, aantalstoelen=form.aantalstoelen.data, opmerking=form.opmerking.data)
+        db.session.add(Lanparty)
         db.session.commit()
         flash('Reis succesvol toegevoegd!', 'success')
         return redirect(url_for('index'))
