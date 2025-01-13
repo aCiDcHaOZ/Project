@@ -5,15 +5,26 @@ from flask_login import UserMixin
 def load_user(user_id):
     return KlantTabel.query.get(int(user_id))
 
-class Lanparty(db.Model):
+class LanTabel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lannaam = db.Column(db.String(80), nullable=False)
     organisator = db.Column(db.String(80), nullable=False)
+    #organisator = db.Column(db.String(80), db.ForeignKey('klanttabel.id'), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     datum = db.Column(db.String(20), nullable=False)
     aantalstoelen = db.Column(db.Integer, nullable=False)
     opmerking = db.Column(db.String(120))
 
+class BoekingTabel(db.model):
+    username = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(80), nullable=False)
+    phone = db.Column(db.String(80), nullable=False)
+    arrival = db.Column(db.String(80), nullable=False)
+    adults = db.Column(db.String(80), nullable=False)
+    special = db.Column(db.String(80), nullable=False)
+    payment = db.Column(db.String(80), nullable=False)
+    promo = db.Column(db.String(80), nullable=False)
+    
 
 class KlantTabel(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,7 +32,9 @@ class KlantTabel(db.Model, UserMixin):
     email = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
 
-    # Projectie van een object binnen de functie
+
+
+    # Projectie van een object binnen de functie, niet boeiend.
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 

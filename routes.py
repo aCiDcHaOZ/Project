@@ -81,7 +81,13 @@ def lan_toevoegen():
     # Maak een nieuw formulier (form) van het type LanFormulier
     form = LanFormulier()
     if form.validate_on_submit():
-        lanformulier = Lanparty(lannaam=form.lannaam.data, organisator=form.organisator.data, email=form.email.data, datum=form.datum.data, aantalstoelen=form.aantalstoelen.data, opmerking=form.opmerking.data)
+        lanformulier = LanTabel(
+            lannaam=form.lannaam.data, 
+            organisator=form.organisator.data, 
+            email=form.email.data, 
+            datum=form.datum.data, 
+            aantalstoelen=form.aantalstoelen.data, 
+            opmerking=form.opmerking.data)
         db.session.add(lanformulier)
         db.session.commit()
         flash('Reis succesvol toegevoegd!', 'success')
