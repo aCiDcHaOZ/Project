@@ -7,12 +7,12 @@ def load_user(user_id):
 
 class Lanparty(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    naam = db.Column(db.String(80), nullable=False)
+    lannaam = db.Column(db.String(80), nullable=False)
+    organisator = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), nullable=False)
-    telnr = db.Column(db.String(20), nullable=False)
     datum = db.Column(db.String(20), nullable=False)
-    gasten = db.Column(db.Integer, nullable=False)
-    verzoeken = db.Column(db.String(120))
+    aantalstoelen = db.Column(db.Integer, nullable=False)
+    opmerking = db.Column(db.String(120))
 
 
 class KlantTabel(db.Model, UserMixin):
