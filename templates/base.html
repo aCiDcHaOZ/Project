@@ -1,80 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Reisbureau{% endblock %}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
- 
-  <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-        color: #333;
-    }
-    header {
-        background-color: #1e88e5;
-        color: white;
-        padding: 20px 10%;
-        text-align: center;
-    }
-    header h1 {
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 2.5em;
-    }
-    header p {
-        font-family: 'Raleway', sans-serif;
-        font-size: 1.2em;
-    }
-    section {
-        padding: 20px 10%;
-    }
-    section h2 {
-        color: #1e88e5;
-        margin-bottom: 10px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 2em;
-    }
-    section p {
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.6;
-        font-size: 1em;
-    }
-    ul {
-        list-style-type: disc;
-        padding-left: 20px;
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.6;
-    }
-    ul li {
-        margin-bottom: 10px;
-    }
-    ul li strong {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 600;
-    }
-    footer {
-        background-color: #1e88e5;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 20px;
-    }
-    footer p {
-        font-family: 'Raleway', sans-serif;
-        font-size: 0.9em;
-        margin: 0;
-    }
-    a {
-        color: #1e88e5;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1b1b1b;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1a1a1a, #333);
+            color: #00ffcc;
+            padding: 20px 10%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        section {
+            padding: 20px 10%;
+            background-color: #111;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        section h2 {
+            color: #ff0080;
+            margin-bottom: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2em;
+        }
+
+        section p {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            font-size: 1.1em;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li strong {
+            color: #ff0080;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #333, #1a1a1a);
+            color: #00ffcc;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        footer p {
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        a {
+            color: #ff0080;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px #ff0080;
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Game Portal</h1>
+        <p>Welcome to the ultimate gaming hub.</p>
+    </header>
+    <section>
+        <h2>About Us</h2>
+        <p>We offer exclusive content, events, and the latest gaming news. Join us to level up your gaming experience.</p>
+        <img src="game_example.jpg" alt="Gaming example">
+    </section>
+    <footer>
+        <p>&copy; 2025 Game Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
         img {
             max-width: 80%; /* Maakt de afbeelding kleiner in verhouding */
             height: auto; /* Zorgt dat de afbeelding proportioneel blijft */
