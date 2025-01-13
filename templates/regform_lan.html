@@ -130,16 +130,26 @@
     <form method="post">
         {{ form.hidden_tag() }}
         <div class="mb-3">
-            {{ form.username.label }}
-            {{ form.username }}
+            {{ form.lannaam.label }}
+            {{ form.lannaam }}
         </div>
+        {{ form.organisator.label }}
+        {{ form.organisator }}
         <div class="mb-3">
             {{ form.email.label }}
             {{ form.email }}
         </div>
         <div class="mb-3">
-            {{ form.password.label }}
-            {{ form.password }}
+            {{ form.datum.label }}
+            {{ form.datum }}
+        </div>
+        <div class="mb-3">
+            {{ form.aantalstoelen.label }}
+            {{ form.aantalstoelen }}
+        </div>
+        <div class="mb-3">
+            {{ form.opmerking.label }}
+            {{ form.opmerking }}
         </div>
         <button type="submit">{{ form.submit.label.text }}</button>
     </form>

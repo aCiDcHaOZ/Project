@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect
 from app import app, db, bcrypt
 from Formulieren import RegistratieFormulier, LoginFormulier, LanFormulier, BoekingFormulier
-from dbmodel import KlantTabel
+from dbmodel import KlantTabel, LanParties
 from flask_login import login_user, current_user, logout_user, login_required
 
 # Route naar de hoofdpagina
@@ -105,3 +105,8 @@ def BoekingFormulier():
             payment=form.payment.data, 
             promo=form.promo.data)
     return render_template('Boekingsformulier.html', form=form)
+
+@app.route('/lanparties')
+def lanparties():
+    lanparties = Lanparties.query.all()
+    return render_template('reis.html', reizen=reizen)

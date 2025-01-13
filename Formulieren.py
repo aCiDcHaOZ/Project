@@ -23,13 +23,13 @@ class RegistratieFormulier(FlaskForm):
             raise ValidationError('Deze email is al geregistreerd.')
 
 class LanFormulier(FlaskForm):
-    username = StringField('Naam', validators=[DataRequired()])
-    password = StringField('Wachtwoord', validators=[DataRequired(), Email()])
+    lannaam = StringField('Naam Lanparty', validators=[DataRequired()])
+    organisator = StringField('Naam', validators=[DataRequired()])
+    
     email = StringField('Email', validators=[DataRequired(), Email()])
-    telnr = StringField('Telefoonnummer', validators=[DataRequired()])
     datum = StringField('Datum', validators=[DataRequired()])
-    gasten = StringField('Aantal gasten', validators=[DataRequired()])
-    verzoeken = StringField('Verzoeken')    
+    aantalstoelen = StringField('Aantal plekken', validators=[DataRequired()])
+    opmerking = StringField('Opmerking')    
     submit = SubmitField('Toevoegen')
 
 class LoginFormulier(FlaskForm):
