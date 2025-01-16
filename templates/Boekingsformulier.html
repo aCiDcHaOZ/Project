@@ -14,65 +14,43 @@
     <section>
         <h2>Maak een Reservering</h2>
         <form action="#" method="POST">
-            <label for="name">Naam</label>
-            <input type="text" id="name" name="name" placeholder="Voor- en achternaam" required>
-            <!--        {{ form.username.label(class="form-label") }}
-                    {{ form.username(class="form-control") }} -->
+            {{ form.hidden_tag() }}
 
-            <label for="email">E-mailadres</label>
-            <input type="email" id="email" name="email" placeholder="voorbeeld@e-mail.com" required>
-             <!--       {{ form.email.label }}
-                    {{ form.email }} -->
+                    {{ form.username.label(class="form-label") }}
+                    {{ form.username(class="form-control") }} 
 
-            <label for="phone">Telefoonnummer</label>
-            <input type="tel" id="phone" name="phone" placeholder="06-12345678" required>
-    <!--                 {{ form.phone.label(class="form-label") }}
-                    {{ form.phone(class="form-control") }} -->
+
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control") }}
+
+
+                   {{ form.phone.label(class="form-label") }}
+                    {{ form.phone(class="form-control") }}
                 
-            <label for="arrival">Aankomstdatumm</label>
-            <input type="date" id="arrival" name="arrival" required>
-            <!--        {{ form.arrival.label(class="form-label") }}
-                    {{ form.arrival(class="form-control") }} -->
 
-                    <label for="duration">Verblijfsduur</label>
-            <select id="duration" name="duration" required>
-                <option value="Nacht">Nacht</option>
-                <option value="Weekend">Weekend</option>
-                <option value="Week">Week</option>
-                <option value="blah">4</option>
-            </select>
+                  {{ form.arrival.label(class="form-label") }}
+                    {{ form.arrival(class="form-control") }} 
 
-                    <label for="adults">Aantal volwassenen</label>
-            <select id="adults" name="adults" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-    <!--                {{ form.adults.label(class="form-label") }}
-                    {{ form.adults(class="form-control") }} -->
+                    {{ form.duration.label(class="form-label") }}
+                    {{ form.duration(class="form-control") }} 
 
-            <label for="special">Speciale wensen</label>
-            <textarea id="special" name="special" rows="3" placeholder="Bijvoorbeeld: huisdier, dichtbij faciliteiten"></textarea>
-    <!--                {{ form.special.label(class="form-label") }}
-                    {{ form.special(class="form-control") }} -->
 
-            <label for="payment">Betaalmethode</label>
-            <select id="payment" name="payment" required>
-                <option value="">Selecteer betaalmethode</option>
-                <option value="creditcard">Creditcard</option>
-                <option value="ideal">iDEAL</option>
-                <option value="paypal">PayPal</option>
-            </select>
-    <!--                {{ form.payment.label(class="form-label") }}
-                    {{ form.payment(class="form-control") }} -->
+                  {{ form.adults.label(class="form-label") }}
+                    {{ form.adults(class="form-control") }} 
 
-            <label for="promo">Promotiecode (optioneel)</label>
-            <input type="text" id="promo" name="promo" placeholder="Voer je code in">
-    <!--                {{ form.promo.label(class="form-label") }}
-                    {{ form.promo(class="form-control") }} -->
 
-            <button type="submit">Verzend Reservering</button>
+                 {{ form.special.label(class="form-label") }}
+                    {{ form.special(class="form-control") }} 
+
+
+                  {{ form.payment.label(class="form-label") }}
+                    {{ form.payment(class="form-control") }} 
+
+
+                {{ form.promo.label(class="form-label") }}
+                    {{ form.promo(class="form-control") }} 
+
+            <button type="submit">{{ form.submit.label.text }}</button>
         </form>
     </section>
 

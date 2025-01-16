@@ -116,6 +116,7 @@ def boeking_toevoegen():
             promo=form.promo.data)
         db.session.add(boekingformulier)
         db.session.commit()
+        print("Boeking is succesvol")
         flash('Boeking succesvol toegevoegd!', 'success')
         return redirect(url_for('home'))
     return render_template('Boekingsformulier.html', form=form)
