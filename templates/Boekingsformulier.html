@@ -16,44 +16,49 @@
         <form action="#" method="POST">
             {{ form.hidden_tag() }}
 
-                    {{ form.username.label(class="form-label") }}
-                    {{ form.username(class="form-control") }} 
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control") }} 
 
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
 
-                    {{ form.email.label(class="form-label") }}
-                    {{ form.email(class="form-control") }}
+            {{ form.phone.label(class="form-label") }}
+            {{ form.phone(class="form-control") }}
 
+            {{ form.arrival.label(class="form-label") }}
+            {{ form.arrival(class="form-control") }}
 
-                   {{ form.phone.label(class="form-label") }}
-                    {{ form.phone(class="form-control") }}
-                
+            <label for="duration" class="form-label">Duur van verblijf</label>
+            <select id="duration" name="duration" class="form-control">
+                <option value="nachtpakket">Nachtpakket - 129 euro</option>
+                <option value="weekendpakket">Weekendpakket - 349 euro</option>
+                <option value="weekpakket">Weekpakket - 999 euro</option>
+            </select>
 
-                  {{ form.arrival.label(class="form-label") }}
-                    {{ form.arrival(class="form-control") }} 
+            <label for="adults" class="form-label">Aantal volwassenen</label>
+            <select id="adults" name="adults" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
 
-                    {{ form.duration.label(class="form-label") }}
-                    {{ form.duration(class="form-control") }} 
+            {{ form.special.label(class="form-label") }}
+            {{ form.special(class="form-control") }}
 
+            <label for="payment" class="form-label">Betaalmethode</label>
+            <select id="payment" name="payment" class="form-control">
+                <option value="">Kies een betaalmethode</option>
+                <option value="ideal">iDEAL</option>
+                <option value="creditcard">Creditcard</option>
+            </select>
 
-                  {{ form.adults.label(class="form-label") }}
-                    {{ form.adults(class="form-control") }} 
-
-
-                 {{ form.special.label(class="form-label") }}
-                    {{ form.special(class="form-control") }} 
-
-
-                  {{ form.payment.label(class="form-label") }}
-                    {{ form.payment(class="form-control") }} 
-
-
-                {{ form.promo.label(class="form-label") }}
-                    {{ form.promo(class="form-control") }} 
+            {{ form.promo.label(class="form-label") }}
+            {{ form.promo(class="form-control") }}
 
             <button type="submit">{{ form.submit.label.text }}</button>
         </form>
     </section>
-
 
     <script>
         document.querySelector("form").addEventListener("submit", function(e) {
