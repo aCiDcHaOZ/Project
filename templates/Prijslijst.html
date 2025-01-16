@@ -1,43 +1,74 @@
-
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
 
+</head>
 <body>
-    <!-- Header -->
     <header>
-        <h1>Onze Prijzen</h1>
-        <p>Transparante informatie over kosten, pakketten en speciale deals</p>
+        <h1>Boekingsformulier</h1>
+        <p>Reserveer jouw ultieme verblijf bij Gaming_Lodge</p>
     </header>
-
-    <!-- Foto -->
     <div class="image-container">
-        <img src="/static/prijslijst.jpg" alt="Prijslijst Gaming Lodge">
+        <img src="/static/Boekingsformulier.jpg" alt="Boekingsformulier Gaming_Lodge">
     </div>
-
-    <!-- Prijsoverzicht -->
     <section>
-        <h2>Onze Pakketten</h2>
-        <div class="price-list">
-            <div class="price-item">
-                <h3>🎮 Nachtpakket</h3>
-                <span>€129</span>
-            </div>
-            <div class="price-item">
-                <h3>🕹 Weekendpakket</h3>
-                <span>€349</span>
-            </div>
-            <div class="price-item">
-                <h3>🏠 Weekpakket</h3>
-                <span>€999</span>
-            </div>
-        </div>
+        <h2>Maak een Reservering</h2>
+        <form action="#" method="POST">
+            {{ form.hidden_tag() }}
 
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="index.html" class="btn">Terug naar Startpagina</a>
-        </div>
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control") }} 
+
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+
+            {{ form.phone.label(class="form-label") }}
+            {{ form.phone(class="form-control") }}
+
+            {{ form.arrival.label(class="form-label") }}
+            {{ form.arrival(class="form-control") }}
+
+            <label for="duration" class="form-label">Duur van verblijf</label>
+            <select id="duration" name="duration" class="form-control">
+                <option value="nachtpakket">Nachtpakket - 129 euro</option>
+                <option value="weekendpakket">Weekendpakket - 349 euro</option>
+                <option value="weekpakket">Weekpakket - 999 euro</option>
+            </select>
+
+            <label for="adults" class="form-label">Aantal volwassenen</label>
+            <select id="adults" name="adults" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            {{ form.special.label(class="form-label") }}
+            {{ form.special(class="form-control") }}
+
+            <label for="payment" class="form-label">Betaalmethode</label>
+            <select id="payment" name="payment" class="form-control">
+                <option value="">Kies een betaalmethode</option>
+                <option value="ideal">iDEAL</option>
+                <option value="creditcard">Creditcard</option>
+            </select>
+
+            {{ form.promo.label(class="form-label") }}
+            {{ form.promo(class="form-control") }}
+
+            <button type="submit">{{ form.submit.label.text }}</button>
+        </form>
     </section>
 
-
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            const payment = document.getElementById("payment");
+            if (payment.value === "") {
+                alert("Selecteer een betaalmethode.");
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
+</html>
 {% endblock %}
