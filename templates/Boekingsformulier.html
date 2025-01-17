@@ -29,10 +29,10 @@
             {{ form.arrival(class="form-control") }}
 
             <label for="duration" class="form-label">Duur van verblijf</label>
-            <select id="duration" name="duration" class="form-control">
-                <option value="nachtpakket">Nachtpakket - 129 euro</option>
-                <option value="weekendpakket">Weekendpakket - 349 euro</option>
-                <option value="weekpakket">Weekpakket - 999 euro</option>
+            <select id="duration" name="duration" class="form-control" onchange="updateTotal()">
+                <option value="129">Nachtpakket - 129 euro</option>
+                <option value="349">Weekendpakket - 349 euro</option>
+                <option value="999">Weekpakket - 999 euro</option>
             </select>
 
             <label for="adults" class="form-label">Aantal volwassenen</label>
@@ -56,11 +56,20 @@
             {{ form.promo.label(class="form-label") }}
             {{ form.promo(class="form-control") }}
 
+            <div id="total" style="margin-top: 20px; font-weight: bold;">Totaal: 129 euro</div>
+
             <button type="submit">{{ form.submit.label.text }}</button>
         </form>
     </section>
 
     <script>
+        function updateTotal() {
+            const duration = document.getElementById("duration");
+            const total = document.getElementById("total");
+            const selectedPrice = duration.options[duration.selectedIndex].value;
+            total.textContent = `Totaal: ${selectedPrice} euro`;
+        }
+
         document.querySelector("form").addEventListener("submit", function(e) {
             const payment = document.getElementById("payment");
             if (payment.value === "") {
