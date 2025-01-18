@@ -2,75 +2,77 @@
 {% block title %}LAN Party Registreren en Overzicht{% endblock %}
 {% block content %}
 
-<header>
+<header class="text-center my-4">
     <h1>LAN-Party Registreren en Overzicht</h1>
 </header>
-<div class="row justify-content-center">
-    <section>
-        <h2>Vul de gegevens in</h2>
-        <form method="post">
-            {{ form.hidden_tag() }}
-            <div class="mb-3">
-                {{ form.lannaam.label }}
-                {{ form.lannaam }}
-            </div>
-            {{ form.organisator.label }}
-            {{ form.organisator }}
-            <div class="mb-3">
-                {{ form.email.label }}
-                {{ form.email }}
-            </div>
-            <div class="mb-3">
-                {{ form.datum.label }}
-                {{ form.datum }}
-            </div>
-            <div class="mb-3">
-                {{ form.aantalstoelen.label }}
-                {{ form.aantalstoelen }}
-            </div>
-            <div class="mb-3">
-                <label for="lan-party-dropdown">Kies een LAN Party:</label>
-                <select id="lan-party-dropdown" name="lan_party" class="form-select">
-                    <option value="">Selecteer een LAN Party</option>
-                    <option value="15-februari">15 februari - Age of Empires II: Definitive Edition</option>
-                    <option value="22-februari">22 februari - Counter-Strike: Global Offensive</option>
-                    <option value="1-maart">1 maart - Minecraft</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                {{ form.opmerking.label }}
-                {{ form.opmerking }}
-            </div>
-            <button type="submit">{{ form.submit.label.text }}</button>
-        </form>
-    </section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <main>
+                <header class="text-center my-4">
+                    <h2>LAN Party Overzicht</h2>
+                </header>
+                <section class="party-card p-3 mb-3 border rounded shadow-sm">
+                    <p><strong>Locatie:</strong> Gaming room</p>
+                    <p><strong>Datum:</strong> 15 februari</p>
+                    <p><strong>Spel:</strong> Age of Empires II: Definitive Edition</p>
+                    <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
+                </section>
+                <section class="party-card p-3 mb-3 border rounded shadow-sm">
+                    <p><strong>Locatie:</strong> Gaming room</p>
+                    <p><strong>Datum:</strong> 22 februari</p>
+                    <p><strong>Spel:</strong> Counter-Strike: Global Offensive</p>
+                    <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
+                </section>
+                <section class="party-card p-3 mb-3 border rounded shadow-sm">
+                    <p><strong>Locatie:</strong> Gaming room</p>
+                    <p><strong>Datum:</strong> 1 maart</p>
+                    <p><strong>Spel:</strong> Minecraft</p>
+                    <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
+                </section>
+            </main>
+        </div>
+        <div class="col-md-6">
+            <section class="p-4 border rounded shadow-sm">
+                <h2 class="text-center">Vul de gegevens in</h2>
+                <form method="post">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.organisator.label }}
+                        {{ form.organisator(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label }}
+                        {{ form.email(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.datum.label }}
+                        {{ form.datum(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.aantalstoelen.label }}
+                        {{ form.aantalstoelen(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="lan-party-dropdown">Kies een LAN Party:</label>
+                        <select id="lan-party-dropdown" name="lan_party" class="form-select">
+                            <option value="">Selecteer een LAN Party</option>
+                            <option value="15-februari">15 februari - Age of Empires II: Definitive Edition</option>
+                            <option value="22-februari">22 februari - Counter-Strike: Global Offensive</option>
+                            <option value="1-maart">1 maart - Minecraft</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.opmerking.label }}
+                        {{ form.opmerking(class="form-control") }}
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
 </div>
-
-<main>
-    <header>
-        <h2>LAN Party Overzicht</h2>
-    </header>
-    <section class="party-card">
-        <h3>LAN Party</h3>
-        <p><strong>Locatie:</strong> Gaming room</p>
-        <p><strong>Datum:</strong> 15 februari</p>
-        <p><strong>Spel:</strong> Age of Empires II: Definitive Edition</p>
-        <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
-    </section>
-    <section class="party-card">
-        <h3>LAN Party</h3>
-        <p><strong>Locatie:</strong> Gaming room</p>
-        <p><strong>Datum:</strong> 22 februari</p>
-        <p><strong>Spel:</strong> Counter-Strike: Global Offensive</p>
-        <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
-    </section>
-    <section class="party-card">
-        <h3>LAN Party</h3>
-        <p><strong>Locatie:</strong> Gaming room</p>
-        <p><strong>Datum:</strong> 1 maart</p>
-        <p><strong>Spel:</strong> Minecraft</p>
-        <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
-    </section>
-</main>
 
 {% endblock %}
