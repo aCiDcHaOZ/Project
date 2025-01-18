@@ -7,6 +7,9 @@
   {% for user in users %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ user.username }} - {{ user.email }}
+    <form method="POST" action="/klant/verwijder/{{ user.id }}">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
 
   </li>
   {% endfor %}
@@ -18,6 +21,9 @@
   {% for party in parties %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ party.lannaam }} - {{ party.organisator }}
+    <form method="POST" action="/lanp/verwijder/{{ party.id }}">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
 
   </li>
   {% endfor %}
@@ -29,6 +35,12 @@
   {% for boeking in boekingen %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ boeking.username }} - {{ boeking.arrival }}
+
+    <form method="POST" action="/boekp/verwijder/{{ boeking.id }}">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
+
+  
   </li>
   {% endfor %}
 </ul><br><br>

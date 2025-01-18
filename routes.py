@@ -154,10 +154,49 @@ def add_registration():
     flash("Er is een fout opgetreden bij het invullen van het formulier.", "danger")
     return render_template('regform_lan.html', form=form)
 
-@app.route('/admin', methods=['GET', 'POST'])
+
+@app.route('/admin', methods=['GET', 'POST', 'DELETE'])
 def klanten():
     users = KlantTabel.query.all()
     parties = LanTabel.query.all()
-    boekingen = BoekingTabel.query.all()
-    
+    boekingen = BoekingTabel.query.all()    
     return render_template('admin.html', users=users, parties=parties, boekingen=boekingen)
+
+
+@app.route('/lanp/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
+def del_lanp(id):
+    record = LanTabel.query.get(id)
+    if record is None:
+        flash('Record niet gevonden.', 'error')
+        return redirect("/admin", code=302)
+    print(record)
+    db.session.delete(record)
+    db.session.commit()
+    flash('Record succesvol verwijderd.', 'success')
+    return redirect("/admin", code=302)
+
+
+@app.route('/boekp/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
+def del_boek(id):
+    record = BoekingTabel.query.get(id)
+    if record is None:
+        flash('Record niet gevonden.', 'error')
+        return redirect("/admin", code=302)
+    print(record)
+    db.session.delete(record)
+    db.session.commit()
+    flash('Record succesvol verwijderd.', 'success')
+    return redirect("/admin", code=302)
+
+
+@app.route('/klant/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
+def del_user(id):
+    record = KlantTabel.query.get(id)
+    if record is None:
+        flash('Record niet gevonden.', 'error')
+        return redirect("/admin", code=302)
+    print(record)
+    db.session.delete(record)
+    db.session.commit()
+    flash('Record succesvol verwijderd.', 'success')
+    return redirect("/admin", code=302)
