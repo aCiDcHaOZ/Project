@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, DateField, PasswordField
-from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
+from wtforms import StringField, SubmitField, DateField, PasswordField, IntegerField, TextAreaField
+from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, Length, NumberRange
 from dbmodel import KlantTabel
 
 class LanFormulier(FlaskForm):
