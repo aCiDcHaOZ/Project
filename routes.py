@@ -125,3 +125,31 @@ def boeking_toevoegen():
 #def lanparties():
 #    lanparties = Lanparties.query.all()
 #    return render_template('reis.html', reizen=reizen)
+
+@app.route('/add_registration', methods=['POST'])
+@login_required
+def add_registration():
+    form = LanFormulier()
+    if form.validate_on_submit():
+        lan_party_dates = {
+            "15-februari": "15 februari",
+            "22-februari": "22 februari",
+            "1-maart": "1 maart"
+        }
+        selected_lan_party = form.lan_party.data
+        datum = lan_party_dates.get(selected_lan_party, "")
+
+        lan_registration = LanTabel(
+            lannaam="LAN Party",
+            organisator=form.organisator.data,
+            email=form.email.data,
+            datum=datum,
+            aantalstoelen=form.aantalstoelen.data,
+            opmerking=form.opmerking.data
+        )
+        db.session.add(lan_registration)
+        db.session.commit()
+        flash("Registratie succesvol toegevoegd!", "success")
+        return redirect(url_for('home'))
+    flash("Er is een fout opgetreden bij het invullen van het formulier.", "danger")
+    return render_template('regform_lan.html', form=form)
