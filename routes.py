@@ -153,3 +153,8 @@ def add_registration():
         return redirect(url_for('home'))
     flash("Er is een fout opgetreden bij het invullen van het formulier.", "danger")
     return render_template('regform_lan.html', form=form)
+
+@app.route('/admin', methods=['GET', 'POST'])
+def klanten():
+    users = KlantTabel.query.all()
+    return render_template('klant.html', users=users)
