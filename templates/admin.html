@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Klanten{% endblock %}
 {% block content %}
-<h1>Klanten</h1>
+<h1>Accounts</h1>
 <a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
 <ul class="list-group mt-3">
   {% for user in users %}
@@ -10,5 +10,27 @@
 
   </li>
   {% endfor %}
-</ul>
+</ul><br><br>
+
+<h1>LAN-Parties</h1>
+<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
+<ul class="list-group mt-3">
+  {% for party in parties %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ party.lannaam }} - {{ party.organisator }}
+
+  </li>
+  {% endfor %}
+</ul><br><br>
+
+<h1>Boekingen</h1>
+<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
+<ul class="list-group mt-3">
+  {% for boeking in boekingen %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ boeking.username }} - {{ boeking.arrival }}
+  </li>
+  {% endfor %}
+</ul><br><br>
+
 {% endblock %}
