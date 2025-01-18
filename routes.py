@@ -157,4 +157,4 @@ def add_registration():
 @app.route('/admin', methods=['GET', 'POST'])
 def klanten():
     users = KlantTabel.query.all()
-    return render_template('klant.html', users=users)
+    return render_template('admin.html', users=users)
