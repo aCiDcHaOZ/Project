@@ -9,11 +9,11 @@ class LanTabel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lannaam = db.Column(db.String(80), nullable=False)
     organisator = db.Column(db.String(80), nullable=False)
-    #organisator = db.Column(db.String(80), db.ForeignKey('klanttabel.id'), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     datum = db.Column(db.String(20), nullable=False)
     aantalstoelen = db.Column(db.Integer, nullable=False)
     opmerking = db.Column(db.String(120))
+
 
 class BoekingTabel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
