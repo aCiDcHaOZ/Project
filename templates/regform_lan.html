@@ -35,7 +35,7 @@
         <div class="col-md-6">
             <section class="p-4 border rounded shadow-sm">
                 <h2 class="text-center">Vul de gegevens in</h2>
-                <form method="post">
+                <form method="post" action="/add_registration">
                     {{ form.hidden_tag() }}
                     <div class="mb-3">
                         {{ form.organisator.label }}
@@ -51,7 +51,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="lan-party-dropdown">Kies een LAN Party:</label>
-                        <select id="lan-party-dropdown" name="lan_party" class="form-select" onchange="updateDate()">
+                        <select id="lan-party-dropdown" name="lan_party" class="form-select">
                             <option value="">Selecteer een LAN Party</option>
                             <option value="15-februari">15 februari - Age of Empires II: Definitive Edition</option>
                             <option value="22-februari">22 februari - Counter-Strike: Global Offensive</option>
@@ -70,22 +70,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    function updateDate() {
-        const dropdown = document.getElementById('lan-party-dropdown');
-        const selectedValue = dropdown.value;
-        const dateField = document.querySelector('input[name="datum"]');
-        if (selectedValue === "15-februari") {
-            dateField.value = "15 februari";
-        } else if (selectedValue === "22-februari") {
-            dateField.value = "22 februari";
-        } else if (selectedValue === "1-maart") {
-            dateField.value = "1 maart";
-        } else {
-            dateField.value = "";
-        }
-    }
-</script>
 
 {% endblock %}
