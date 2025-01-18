@@ -13,20 +13,20 @@
                     <h2>LAN Party Overzicht</h2>
                 </header>
                 <section class="party-card p-3 mb-3 border rounded shadow-sm">
+                    <h3 class="text-primary">15 februari</h3>
                     <p><strong>Locatie:</strong> Gaming room</p>
-                    <p><strong>Datum:</strong> 15 februari</p>
                     <p><strong>Spel:</strong> Age of Empires II: Definitive Edition</p>
                     <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
                 </section>
                 <section class="party-card p-3 mb-3 border rounded shadow-sm">
+                    <h3 class="text-primary">22 februari</h3>
                     <p><strong>Locatie:</strong> Gaming room</p>
-                    <p><strong>Datum:</strong> 22 februari</p>
                     <p><strong>Spel:</strong> Counter-Strike: Global Offensive</p>
                     <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
                 </section>
                 <section class="party-card p-3 mb-3 border rounded shadow-sm">
+                    <h3 class="text-primary">1 maart</h3>
                     <p><strong>Locatie:</strong> Gaming room</p>
-                    <p><strong>Datum:</strong> 1 maart</p>
                     <p><strong>Spel:</strong> Minecraft</p>
                     <p><strong>Beschrijving:</strong> Exclusief voor gasten van Gaming_lodge. Gratis eerste drankje + snack.</p>
                 </section>
@@ -46,16 +46,12 @@
                         {{ form.email(class="form-control") }}
                     </div>
                     <div class="mb-3">
-                        {{ form.datum.label }}
-                        {{ form.datum(class="form-control") }}
-                    </div>
-                    <div class="mb-3">
                         {{ form.aantalstoelen.label }}
                         {{ form.aantalstoelen(class="form-control") }}
                     </div>
                     <div class="mb-3">
                         <label for="lan-party-dropdown">Kies een LAN Party:</label>
-                        <select id="lan-party-dropdown" name="lan_party" class="form-select">
+                        <select id="lan-party-dropdown" name="lan_party" class="form-select" onchange="updateDate()">
                             <option value="">Selecteer een LAN Party</option>
                             <option value="15-februari">15 februari - Age of Empires II: Definitive Edition</option>
                             <option value="22-februari">22 februari - Counter-Strike: Global Offensive</option>
@@ -74,5 +70,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    function updateDate() {
+        const dropdown = document.getElementById('lan-party-dropdown');
+        const selectedValue = dropdown.value;
+        const dateField = document.querySelector('input[name="datum"]');
+        if (selectedValue === "15-februari") {
+            dateField.value = "15 februari";
+        } else if (selectedValue === "22-februari") {
+            dateField.value = "22 februari";
+        } else if (selectedValue === "1-maart") {
+            dateField.value = "1 maart";
+        } else {
+            dateField.value = "";
+        }
+    }
+</script>
 
 {% endblock %}
