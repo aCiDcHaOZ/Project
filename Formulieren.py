@@ -45,4 +45,17 @@ class RegistratieFormulier(FlaskForm):
         user = KlantTabel.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('Deze email is al geregistreerd.')
-    
+        
+
+class LanFormulier(FlaskForm):
+    organisator = StringField('Organisator', validators=[DataRequired(), Length(min=2, max=80)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    aantalstoelen = IntegerField('Aantal Stoelen', validators=[DataRequired(), NumberRange(min=1)])
+    lan_party = SelectField('LAN Party', validators=[DataRequired()], choices=[
+        ('15-februari', '15 februari - Age of Empires II: Definitive Edition'),
+        ('22-februari', '22 februari - Counter-Strike: Global Offensive'),
+        ('1-maart', '1 maart - Minecraft')
+    ])
+    opmerking = TextAreaField('Opmerking', validators=[Length(max=120)])
+    submit = SubmitField('Toevoegen')
+
