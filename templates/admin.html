@@ -7,6 +7,13 @@
   {% for user in users %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ user.username }} - {{ user.email }}
+    
+            <!-- Knop voor aanpassen klant -->
+            <form method="POST" action="/klant/update/{{ user.id }}">
+              <input type="hidden" name="_method" value="POST">
+              <button type="post" class="btn btn-info update-button">Bewerken</button></form>
+
+    <!-- Knop voor verwijderen klant -->
     <form method="POST" action="/klant/verwijder/{{ user.id }}">
       <input type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
@@ -21,6 +28,13 @@
   {% for party in parties %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ party.lannaam }} - {{ party.organisator }}
+
+        <!-- Knop voor aanpassen LAN-Party -->
+        <form method="POST" action="/lanp/update/{{ party.id }}">
+          <input type="hidden" name="_method" value="POST">
+          <button type="post" class="btn btn-info update-button">Bewerken</button></form>
+
+    <!-- Knop voor verwijderen LAN-Party -->
     <form method="POST" action="/lanp/verwijder/{{ party.id }}">
       <input type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
@@ -36,6 +50,7 @@
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ boeking.username }} - {{ boeking.arrival }}
 
+    <!-- Knop voor verwijderen boeking -->
     <form method="POST" action="/boekp/verwijder/{{ boeking.id }}">
       <input type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>

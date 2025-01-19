@@ -175,6 +175,40 @@ def del_lanp(id):
     flash('Record succesvol verwijderd.', 'success')
     return redirect("/admin", code=302)
 
+# UPDATE LANPARTY TEST
+@app.route('/lanp/update/<int:id>', methods=['GET', 'POST', 'UPDATE'])
+def upd_lanp(id):
+    party = LanTabel.query.get(id)
+    form=LanFormulier(obj=party)
+    print(party)
+    if form.validate_on_submit():
+        print("Valide!")
+        party.organisator = form.organisator.data
+        party.email = form.email.data
+        party.aantalstoelen = form.aantalstoelen.data
+        party.opmerking = form.opmerking.data
+        db.session.commit()
+        flash('Lan-Party succesvol bijgewerkt!', 'success')
+        return redirect("/admin", code=302)
+    return redirect("/admin", code=302)
+
+
+@app.route('/klant/update/<int:id>', methods=['GET', 'POST', 'UPDATE'])
+def upd_user(id):
+    klant = KlantTabel.query.get(id)
+    form=RegistratieFormulier(obj=klant)
+    print(klant)
+    if form.validate_on_submit():
+        print("Valide!")
+        klant.username = form.username.data
+        klant.email = form.email.data
+        db.session.commit()
+        flash('Lan-Party succesvol bijgewerkt!', 'success')
+        return redirect("/admin", code=302)
+    return render_template('registreren.html', form=form, actie='Wijzigen')
+
+
+
 
 @app.route('/boekp/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
 def del_boek(id):
