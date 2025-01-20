@@ -27,12 +27,9 @@ class BoekingFormulier(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Telefoonnummer', validators=[DataRequired()])
+    bungalow = StringField('Bungalow', validators=[DataRequired()])
     arrival = DateField('AankomstDatum', validators=[DataRequired()])
     duration = StringField('duration', validators=[DataRequired()])
-    adults = StringField('Volwassenen', validators=[DataRequired()])
-    special = StringField('SpecialeWensen')
-    payment = StringField('Payment', validators=[DataRequired()])
-    promo = StringField('PromoCode')
     submit = SubmitField('Boek')
 
 class RegistratieFormulier(FlaskForm):

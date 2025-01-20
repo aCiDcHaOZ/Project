@@ -102,24 +102,24 @@ def lan_toevoegen():
 @login_required
 def boeking_toevoegen():
     form = BoekingFormulier()
+    bungalows = BungalowTabel.query.all()
+    print(bungalows)
     if form.validate_on_submit():
         #Strings defineren adhv pointers in de HTML
         boekingformulier = BoekingTabel(
             username=form.username.data, 
             email=form.email.data, 
-            phone=form.phone.data, 
+            phone=form.phone.data,
+            bungalow_id=form.bungalow.data,
             arrival=form.arrival.data,
-            duration=form.duration.data,
-            adults=form.adults.data, 
-            special=form.special.data, 
-            payment=form.payment.data, 
-            promo=form.promo.data)
+            duration=form.duration.data)
+        print(boekingformulier)
         db.session.add(boekingformulier)
         db.session.commit()
         print("Boeking is succesvol")
         flash('Boeking succesvol toegevoegd!', 'success')
         return redirect(url_for('home'))
-    return render_template('Boekingsformulier.html', form=form)
+    return render_template('Boekingsformulier.html', form=form, bungalows=bungalows)
 
 #@app.route('/lanparties')
 #def lanparties():

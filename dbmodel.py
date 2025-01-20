@@ -14,24 +14,23 @@ class LanTabel(db.Model):
     aantalstoelen = db.Column(db.Integer, nullable=False)
     opmerking = db.Column(db.String(120))
 
+class BungalowTabel(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    bnaam = db.Column(db.String(80), nullable=False)
+    adrescode = db.Column(db.String(80), nullable=False)
+
 
 class BoekingTabel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(80), nullable=False)
     phone = db.Column(db.String(80), nullable=False)
+    bungalow_id = db.Column(db.Integer, db.ForeignKey('bungalow_tabel.id'), nullable=False)
     arrival = db.Column(db.String(80), nullable=False)
     duration = db.Column(db.String(80), nullable=False)
-    adults = db.Column(db.String(80), nullable=False)
-    special = db.Column(db.String(80), nullable=False)
-    payment = db.Column(db.String(80), nullable=False)
-    promo = db.Column(db.String(80), nullable=False)
 
+    bungalow_tabel = db.relationship('BungalowTabel', backref=db.backref('boekingen'), lazy=True)
 
-class BungalowTabel(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    bnaam = db.Column(db.String(80), nullable=False)
-    adrescode = db.Column(db.String(80), nullable=False)
 
 class KlantTabel(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -43,6 +42,8 @@ class KlantTabel(db.Model, UserMixin):
     # Projectie van een object binnen de functie, niet boeiend.
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
+
+
 
 #    id = db.Column(db.Integer, primary_key=True)
 #    klant_id = db.Column(db.Integer, db.ForeignKey('klant.id'), nullable=False)

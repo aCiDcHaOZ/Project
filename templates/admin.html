@@ -56,7 +56,7 @@
 <ul class="list-group mt-3">
   {% for bungalow in bungalows %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    {{ bungalow.bnaam }} - {{ bungalow.adrescode }}
+    {{ bungalow.id }} - {{ bungalow.bnaam }} - {{ bungalow.adrescode }}
 
     <form method="POST" action="/bungalow/update/{{ bungalow.id }}" class="d-inline">
       <input type="hidden" name="_method" value="POST">

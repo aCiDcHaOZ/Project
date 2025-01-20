@@ -28,6 +28,15 @@
             {{ form.arrival.label(class="form-label") }}
             {{ form.arrival(class="form-control") }}
 
+            <!-- Laat een dropdown menu zien voor elke record in de tabel Bungalow -->
+            <label for="bungalow" class="form-label">Bungalowselectie</label>
+            <select id="bungaloww" name="bungalow" class="form-control">
+            <option value="">Selecteer een bungalow</option> 
+            {% for bungalow in bungalows %}
+            <option value="{{ bungalow.id }}">{{ bungalow.bnaam }}</option>  
+            {% endfor %}
+            </select>
+
             <label for="duration" class="form-label">Duur van verblijf</label>
             <select id="duration" name="duration" class="form-control" onchange="updateTotal()">
                 <option value="129">Nachtpakket - 129 euro</option>
@@ -35,26 +44,6 @@
                 <option value="999">Weekpakket - 999 euro</option>
             </select>
 
-            <label for="adults" class="form-label">Aantal volwassenen</label>
-            <select id="adults" name="adults" class="form-control">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-
-            {{ form.special.label(class="form-label") }}
-            {{ form.special(class="form-control") }}
-
-            <label for="payment" class="form-label">Betaalmethode</label>
-            <select id="payment" name="payment" class="form-control">
-                <option value="">Kies een betaalmethode</option>
-                <option value="ideal">iDEAL</option>
-                <option value="creditcard">Creditcard</option>
-            </select>
-
-            {{ form.promo.label(class="form-label") }}
-            {{ form.promo(class="form-control") }}
 
             <div id="total" style="margin-top: 20px; font-weight: bold;">Totaal: 129 euro</div>
 
