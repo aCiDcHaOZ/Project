@@ -176,7 +176,7 @@ def del_lanp(id):
     return redirect("/admin", code=302)
 
 # UPDATE LANPARTY TEST
-@app.route('/lanp/update/<int:id>', methods=['GET', 'POST', 'UPDATE'])
+@app.route('/lanp/update/<int:id>', methods=['GET', 'POST'])
 def upd_lanp(id):
     party = LanTabel.query.get(id)
     form=LanFormulier(obj=party)
@@ -190,13 +190,13 @@ def upd_lanp(id):
         db.session.commit()
         flash('Lan-Party succesvol bijgewerkt!', 'success')
         return redirect("/admin", code=302)
-    return redirect("/admin", code=302)
+    return render_template('regform_lan.html', form=form, actie='Wijzigen')   
 
-
-@app.route('/klant/update/<int:id>', methods=['GET', 'POST', 'UPDATE'])
+# Klant updaten
+@app.route('/klant/update/<int:id>', methods=['GET', 'POST'])
 def upd_user(id):
-    klant = KlantTabel.query.get(id)
-    form=RegistratieFormulier(obj=klant)
+    klant = KlantTabel.query.get_or_404(id)
+    form = RegistratieFormulier(obj=klant)
     print(klant)
     if form.validate_on_submit():
         print("Valide!")
