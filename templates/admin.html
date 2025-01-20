@@ -1,63 +1,70 @@
 {% extends "base.html" %}
+
 {% block title %}Klanten{% endblock %}
+
 {% block content %}
+
 <h1>Accounts</h1>
 <a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
 <ul class="list-group mt-3">
   {% for user in users %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ user.username }} - {{ user.email }}
-    
-            <!-- Knop voor aanpassen klant -->
-            <form method="POST" action="/klant/update/{{ user.id }}">
-              <input type="hidden" name="_method" value="POST">
-              <button type="post" class="btn btn-info update-button">Bewerken</button></form>
 
-    <!-- Knop voor verwijderen klant -->
-    <form method="POST" action="/klant/verwijder/{{ user.id }}">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
+    <div class="btn-group" role="group">
+      <!-- Knop voor aanpassen klant -->
+      <form method="POST" action="/klant/update/{{ user.id }}" class="d-inline">
+        <input type="hidden" name="_method" value="POST">
+        <button type="submit" class="btn btn-info">Bewerken</button>
+      </form>
 
+      <!-- Knop voor verwijderen klant -->
+      <form method="POST" action="/klant/verwijder/{{ user.id }}" class="d-inline">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger">Verwijder</button>
+      </form>
+    </div>
   </li>
   {% endfor %}
-</ul><br><br>
+</ul>
 
-<h1>LAN-Parties</h1>
+<h1 class="mt-5">LAN-Parties</h1>
 <a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
 <ul class="list-group mt-3">
   {% for party in parties %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ party.lannaam }} - {{ party.organisator }}
 
-        <!-- Knop voor aanpassen LAN-Party -->
-        <form method="POST" action="/lanp/update/{{ party.id }}">
-          <input type="hidden" name="_method" value="POST">
-          <button type="post" class="btn btn-info update-button">Bewerken</button></form>
+    <div class="btn-group" role="group">
+      <!-- Knop voor aanpassen LAN-Party -->
+      <form method="POST" action="/lanp/update/{{ party.id }}" class="d-inline">
+        <input type="hidden" name="_method" value="POST">
+        <button type="submit" class="btn btn-info">Bewerken</button>
+      </form>
 
-    <!-- Knop voor verwijderen LAN-Party -->
-    <form method="POST" action="/lanp/verwijder/{{ party.id }}">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
-
+      <!-- Knop voor verwijderen LAN-Party -->
+      <form method="POST" action="/lanp/verwijder/{{ party.id }}" class="d-inline">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger">Verwijder</button>
+      </form>
+    </div>
   </li>
   {% endfor %}
-</ul><br><br>
+</ul>
 
-<h1>Boekingen</h1>
+<h1 class="mt-5">Boekingen</h1>
 <a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
 <ul class="list-group mt-3">
   {% for boeking in boekingen %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ boeking.username }} - {{ boeking.arrival }}
 
-    <!-- Knop voor verwijderen boeking -->
-    <form method="POST" action="/boekp/verwijder/{{ boeking.id }}">
+    <form method="POST" action="/boekp/verwijder/{{ boeking.id }}" class="d-inline">
       <input type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-danger delete-button">Verwijder</button></form>
-
-  
+      <button type="submit" class="btn btn-danger">Verwijder</button>
+    </form>
   </li>
   {% endfor %}
-</ul><br><br>
+</ul>
 
 {% endblock %}
