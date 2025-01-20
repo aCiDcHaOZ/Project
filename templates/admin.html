@@ -5,7 +5,6 @@
 {% block content %}
 
 <h1>Accounts</h1>
-<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
 <ul class="list-group mt-3">
   {% for user in users %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -29,7 +28,7 @@
 </ul>
 
 <h1 class="mt-5">LAN-Parties</h1>
-<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
+<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe LANparty</a>
 <ul class="list-group mt-3">
   {% for party in parties %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -52,12 +51,34 @@
   {% endfor %}
 </ul>
 
+<h1 class="mt-5">Bungalows</h1>
+<a class="btn btn-primary" href="/bungalow/aanmaken">Nieuwe bungalow</a>
+<ul class="list-group mt-3">
+  {% for bungalow in bungalows %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ bungalow.bnaam }} - {{ bungalow.adrescode }}
+
+    <form method="POST" action="/bungalow/update/{{ bungalow.id }}" class="d-inline">
+      <input type="hidden" name="_method" value="POST">
+      <button type="submit" class="btn btn-info">Bewerken</button>
+    </form>
+
+    <form method="POST" action="/bungalow/verwijder/{{ bungalow.id }}" class="d-inline">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn btn-danger">Verwijder</button>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+
 <h1 class="mt-5">Boekingen</h1>
-<a class="btn btn-primary" href="/klant/toevoegen">Nieuwe klant</a>
+<a class="btn btn-primary" href="/boeking/toevoegen">Nieuwe boeking</a>
 <ul class="list-group mt-3">
   {% for boeking in boekingen %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ boeking.username }} - {{ boeking.arrival }}
+
+
 
     <form method="POST" action="/boekp/verwijder/{{ boeking.id }}" class="d-inline">
       <input type="hidden" name="_method" value="DELETE">
@@ -66,5 +87,7 @@
   </li>
   {% endfor %}
 </ul>
+
+
 
 {% endblock %}

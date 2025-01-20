@@ -17,6 +17,12 @@ class LoginFormulier(FlaskForm):
     password = PasswordField('Wachtwoord', validators=[DataRequired()])
     submit = SubmitField('inloggen')
 
+class BungalowFormulier(FlaskForm):
+    bnaam = StringField('Bungalow naam', validators=[DataRequired()])
+    adrescode = StringField('Adrescode', validators=[DataRequired()])
+    submit = SubmitField('Aanmaken')
+
+
 class BoekingFormulier(FlaskForm):
     username = StringField('Naam', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])

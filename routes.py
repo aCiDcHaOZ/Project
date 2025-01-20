@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect
 from app import app, db, bcrypt
-from Formulieren import RegistratieFormulier, LoginFormulier, LanFormulier, BoekingFormulier
-from dbmodel import KlantTabel, LanTabel, BoekingTabel
+from Formulieren import *
+from dbmodel import KlantTabel, LanTabel, BoekingTabel, BungalowTabel
 from flask_login import login_user, current_user, logout_user, login_required
 
 # Route naar de hoofdpagina
@@ -160,7 +160,9 @@ def klanten():
     users = KlantTabel.query.all()
     parties = LanTabel.query.all()
     boekingen = BoekingTabel.query.all()    
-    return render_template('admin.html', users=users, parties=parties, boekingen=boekingen)
+    bungalows = BungalowTabel.query.all()
+    print(boekingen) 
+    return render_template('admin.html', users=users, parties=parties, boekingen=boekingen, bungalows=bungalows)
 
 
 @app.route('/lanp/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
@@ -198,6 +200,7 @@ def upd_user(id):
     klant = KlantTabel.query.get_or_404(id)
     form = RegistratieFormulier(obj=klant)
     print(klant)
+
     if form.validate_on_submit():
         print("Valide!")
         klant.username = form.username.data
@@ -234,3 +237,46 @@ def del_user(id):
     db.session.commit()
     flash('Record succesvol verwijderd.', 'success')
     return redirect("/admin", code=302)
+
+@app.route('/bungalow/aanmaken', methods=['GET', 'POST'])
+@login_required
+def bungalow_toevoegen():
+    # Maak een nieuw formulier (form) van het type LanFormulier
+    form = BungalowFormulier()
+    if form.validate_on_submit():
+        form = BungalowTabel(
+            bnaam = form.bnaam.data,
+            adrescode = form.adrescode.data)
+        db.session.add(form)
+        db.session.commit()
+        flash('Bungalow succesvol toegevoegd!', 'success')
+        return redirect(url_for('home'))
+    return render_template('/bungalow/aanmaken.html', form=form, actie='Toevoegen')
+
+@app.route('/bungalow/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
+def bungalow_verwijderen(id):
+    record = BungalowTabel.query.get(id)
+    if record is None:
+        flash('Record niet gevonden.', 'error')
+        return redirect("/admin", code=302)
+    print(record)
+    db.session.delete(record)
+    db.session.commit()
+    flash('Record succesvol verwijderd.', 'success')
+    return redirect("/admin", code=302)
+
+# Klant updaten
+@app.route('/bungalow/update/<int:id>', methods=['GET', 'POST'])
+def update_bungalow(id):
+    bungalow = BungalowTabel.query.get_or_404(id)
+    form = BungalowFormulier(obj=bungalow)
+    print(bungalow)
+
+    if form.validate_on_submit():
+        print("Valide!")
+        bungalow.bnaam = form.bnaam.data
+        bungalow.adrescode = form.adrescode.data
+        db.session.commit()
+        flash('Bungalow succesvol bijgewerkt!', 'success')
+        return redirect("/admin", code=302)
+    return render_template('/bungalow/aanmaken.html', form=form, actie='Wijzigen')

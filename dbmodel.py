@@ -26,7 +26,12 @@ class BoekingTabel(db.Model):
     special = db.Column(db.String(80), nullable=False)
     payment = db.Column(db.String(80), nullable=False)
     promo = db.Column(db.String(80), nullable=False)
-    
+
+
+class BungalowTabel(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    bnaam = db.Column(db.String(80), nullable=False)
+    adrescode = db.Column(db.String(80), nullable=False)
 
 class KlantTabel(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
