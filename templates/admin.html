@@ -51,19 +51,19 @@
   {% endfor %}
 </ul>
 
-<h1 class="mt-5">Bungalows</h1>
-<a class="btn btn-primary" href="/bungalow/aanmaken">Nieuwe bungalow</a>
+<h1 class="mt-5">Lodges</h1>
+<a class="btn btn-primary" href="/lodge/aanmaken">Nieuwe lodge</a>
 <ul class="list-group mt-3">
-  {% for bungalow in bungalows %}
+  {% for lodge in lodges %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    {{ bungalow.id }} - {{ bungalow.bnaam }} - {{ bungalow.adrescode }}
+    {{ lodge.id }} - {{ lodge.bnaam }} - {{ lodge.adrescode }}
 
-    <form method="POST" action="/bungalow/update/{{ bungalow.id }}" class="d-inline">
+    <form method="POST" action="/lodge/update/{{ lodge.id }}" class="d-inline">
       <input type="hidden" name="_method" value="POST">
       <button type="submit" class="btn btn-info">Bewerken</button>
     </form>
 
-    <form method="POST" action="/bungalow/verwijder/{{ bungalow.id }}" class="d-inline">
+    <form method="POST" action="/lodge/verwijder/{{ lodge.id }}" class="d-inline">
       <input type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn btn-danger">Verwijder</button>
     </form>
@@ -76,9 +76,7 @@
 <ul class="list-group mt-3">
   {% for boeking in boekingen %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    {{ boeking.username }} - {{ boeking.arrival }} - bungalow-ID: {{ boeking.bungalow_id }}
-
-
+    {{ boeking.username }} - {{ boeking.arrival }} - lodge-ID: {{ boeking.lodge_id }}
 
     <form method="POST" action="/boekp/verwijder/{{ boeking.id }}" class="d-inline">
       <input type="hidden" name="_method" value="DELETE">
@@ -88,6 +86,17 @@
   {% endfor %}
 </ul>
 
-
+<h1 class="mt-5">Boek een lodge</h1>
+<form method="POST" action="/boeking/aanmaken">
+  <div class="form-group">
+    <label for="pakket">Kies een pakket:</label>
+    <select id="pakket" name="pakket" class="form-control">
+      <option value="midweek">Midweekpakket</option>
+      <option value="weekend">Weekendpakket</option>
+      <option value="nacht">Nachtsessie</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Boek nu</button>
+</form>
 
 {% endblock %}
