@@ -177,22 +177,23 @@ def del_lanp(id):
     flash('Record succesvol verwijderd.', 'success')
     return redirect("/admin", code=302)
 
-# UPDATE LANPARTY TEST
-@app.route('/lanp/update/<int:id>', methods=['GET', 'POST'])
-def upd_lanp(id):
-    party = LanTabel.query.get(id)
-    form=LanFormulier(obj=party)
-    print(party)
+@app.route('/lanparty/registreren', methods=['GET', 'POST'])
+def registreer_lanparty():
+    form = LanPartyForm()  # Zorg ervoor dat je een formulier hebt
     if form.validate_on_submit():
-        print("Valide!")
-        party.organisator = form.organisator.data
-        party.email = form.email.data
-        party.aantalstoelen = form.aantalstoelen.data
-        party.opmerking = form.opmerking.data
+        # Verwerk de ingevoerde gegevens en sla op in de database
+        nieuw_party = LANParty(
+            naam=form.lannaam.data,
+            organisator=form.organisator.data,
+            email=form.email.data,
+            datum=form.datum.data,
+            aantal_stoelen=form.aantalstoelen.data
+        )
+        db.session.add(nieuw_party)
         db.session.commit()
-        flash('Lan-Party succesvol bijgewerkt!', 'success')
-        return redirect("/admin", code=302)
-    return render_template('regform_lan.html', form=form, actie='Wijzigen')   
+        return redirect(url_for('lanparty_overzicht'))  # Verwijs naar een overzichtspagina
+    return render_template('lanparty_registreren.html', form=form)
+
 
 # Klant updaten
 @app.route('/klant/update/<int:id>', methods=['GET', 'POST'])
