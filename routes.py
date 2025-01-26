@@ -78,7 +78,7 @@ def pagina_niet_gevonden(e):
     return render_template('404.html'), 404
 
 # Een pagina om LAN-party's te registreren
-@app.route('/reglan', methods=['GET', 'POST'])
+@app.route('/lanp/reg', methods=['GET', 'POST'])
 @login_required
 def lan_toevoegen():
     # Maak een nieuw formulier (form) van het type LanFormulier
@@ -160,9 +160,9 @@ def klanten():
     users = KlantTabel.query.all()
     parties = LanTabel.query.all()
     boekingen = BoekingTabel.query.all()    
-    bungalows = BungalowTabel.query.all()
+    lodges = BungalowTabel.query.all()
     print(boekingen) 
-    return render_template('admin.html', users=users, parties=parties, boekingen=boekingen, bungalows=bungalows)
+    return render_template('admin.html', users=users, parties=parties, boekingen=boekingen, lodges=lodges)
 
 
 @app.route('/lanp/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
@@ -240,7 +240,7 @@ def del_user(id):
     flash('Record succesvol verwijderd.', 'success')
     return redirect("/admin", code=302)
 
-@app.route('/bungalow/aanmaken', methods=['GET', 'POST'])
+@app.route('/lodge/aanmaken', methods=['GET', 'POST'])
 @login_required
 def bungalow_toevoegen():
     # Maak een nieuw formulier (form) van het type LanFormulier
