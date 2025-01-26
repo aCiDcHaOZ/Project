@@ -3,20 +3,13 @@ from app import app, db, bcrypt
 from Formulieren import *
 from dbmodel import KlantTabel, LanTabel, BoekingTabel, BungalowTabel
 from flask_login import login_user, current_user, logout_user, login_required
-from flask import Flask, render_template# Route naar de hoofdpagina
+
 
 @app.route('/home')
 @app.route('/')
 def home():
     return render_template('index.html', title='Home')
 
-
-app = Flask(__name__)
-@app.route('/')
-def home():
-    return render_template('home.html')
-
- 
 # Route naar prijslijst
 @app.route('/prijslijst')
 def PrijsLijst():
