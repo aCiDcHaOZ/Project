@@ -255,7 +255,7 @@ def bungalow_toevoegen():
         return redirect(url_for('home'))
     return render_template('/bungalow/aanmaken.html', form=form, actie='Toevoegen')
 
-@app.route('/bungalow/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
+@app.route('/lodge/verwijder/<int:id>', methods=['GET', 'POST', 'DELETE'])
 def bungalow_verwijderen(id):
     record = BungalowTabel.query.get(id)
     if record is None:
