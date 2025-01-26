@@ -98,7 +98,7 @@ def lan_toevoegen():
     return render_template('regform_lan.html', form=form, actie='Toevoegen')
 
 # Route naar boekingsformulier
-@app.route('/boekingsformulier', methods=['GET', 'POST'])
+@app.route('/boeking/toevoegen', methods=['GET', 'POST'])
 @login_required
 def boeking_toevoegen():
     form = BoekingFormulier()
