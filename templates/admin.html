@@ -77,7 +77,7 @@
 <ul class="list-group mt-3">
   {% for boeking in boekingen %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    {{ boeking.username }} - {{ boeking.arrival }} - lodge-ID: {{ boeking.lodge_id }}
+    {{ boeking.username }} - {{ boeking.arrival }} - lodge-ID: {{ boeking.bungalow_id }}
 
     <form method="POST" action="/boekp/verwijder/{{ boeking.id }}" class="d-inline">
       <input type="hidden" name="_method" value="DELETE">
