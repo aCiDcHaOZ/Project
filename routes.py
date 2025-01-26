@@ -268,7 +268,7 @@ def bungalow_verwijderen(id):
     return redirect("/admin", code=302)
 
 # Klant updaten
-@app.route('/bungalow/update/<int:id>', methods=['GET', 'POST'])
+@app.route('/lodge/update/<int:id>', methods=['GET', 'POST'])
 def update_bungalow(id):
     bungalow = BungalowTabel.query.get_or_404(id)
     form = BungalowFormulier(obj=bungalow)
